@@ -4,20 +4,21 @@ using UnityEngine.InputSystem.Controls;
 
 public class PortalNetwork : MonoBehaviour
 {
-    Portal[] portals;
-    Transform portalNetwork;
+    Portal[] portals; // array of portals
+    Transform portalNetwork; // it's own transform
     void Start()
     {
+        // asigns the portal connections
         portalNetwork = gameObject.GetComponent<Transform>();
+        portals = new Portal[portalNetwork.childCount];
         for (int i = 0; i < portalNetwork.childCount; i++)
         {
             Transform curent = gameObject.GetComponentInChildren<Transform>().GetChild(i);
             portals[i] = curent.gameObject.GetComponent<Portal>();
-            portals[i].exitPortal;
+            Transform other = gameObject.GetComponentInChildren<Transform>().GetChild(portalNetwork.childCount - i-1); // - i - 1 is to find the other portal 
+            portals[i].exitPortal = other.gameObject;
         }
-
-
-
+        
     }
 
     

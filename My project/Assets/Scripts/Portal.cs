@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
-    public GameObject exitPortal;
+    public GameObject exitPortal; // the portal its connected to
 
 
 
