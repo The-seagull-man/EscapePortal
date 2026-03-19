@@ -383,8 +383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a5aeecd3bbd8d48b7363b6afd20a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::cameraMover
-  sensX: 200
-  sensY: 200
+  sensX: 400
+  sensY: 400
   orientation: {fileID: 1602739979}
 --- !u!1 &392523321
 GameObject:
