@@ -6,7 +6,7 @@ public class PortalNetwork : MonoBehaviour
 {
     Portal[] portals; // array of portals
     Transform portalNetwork; // it's own transform
-    void Start()
+    void Awake()
     {
         // asigns the portal connections
         portalNetwork = gameObject.GetComponent<Transform>();
