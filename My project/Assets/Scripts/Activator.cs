@@ -1,19 +1,14 @@
 using UnityEngine;
 
-public abstract class Activator : MonoBehaviour
+public abstract class Activator : Machine
 {
     public Machine machine;
 
-    /**
-     * Activates or deactivates the machine.
-     * Returns true if the state of the machine changed.
-     */
-    public bool SetActivate(bool active) {
-        if (machine.Active == active) {
-            return false;
-        } else {
-            machine.Active = active;
-            return true;
-        }
-    }
+	public override void OnActivate() {
+		machine.Active = true;
+	}
+
+	public override void OnDeactivate() {
+		machine.Active = false;
+	}
 }
