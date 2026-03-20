@@ -39,7 +39,7 @@ public class Playermovementscript : MonoBehaviour
     private void Update()
     {
         // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, Height * 0.5f + 0.2f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, Height * 0.5f + 0.05f, whatIsGround);
 
         
         MyInput();
