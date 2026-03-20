@@ -8,7 +8,7 @@ public class ActivatorBattery : Activator
 		if (!activated) {
 			if (collision.gameObject.CompareTag("Battery")) {
 				activated = true;
-				SetActivate(true);
+				Active = true;
 				Destroy(collision.gameObject);
 			}
 		}
