@@ -13,17 +13,18 @@ public class Portal : MonoBehaviour
     private void Start()
     {
         exitPoint = exitPortal.transform;
-        
-        
-        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         GameObject item = collision.gameObject;
 
-        item.transform.position = exitPortal.transform.position + transform.forward * offset;
-        item.transform.rotation = exitPortal.transform.rotation;
+        item.transform.position = exitPoint.position + exitPoint.forward * offset;
+        if (item.GetComponentInParent<Transform>() != null)
+        {
+            item = item.GetComponentInParent<Transform>().gameObject;
+        }
+        item.transform.rotation = exitPoint.rotation;
 
     }
 
