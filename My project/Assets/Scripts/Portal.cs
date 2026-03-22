@@ -24,8 +24,9 @@ public class Portal : MonoBehaviour
         {
             item = item.GetComponentInParent<Transform>().gameObject;
         }
-        item.transform.rotation = exitPoint.rotation;
-
+        Vector3 rotate = exitPoint.rotation.eulerAngles + item.transform.rotation.eulerAngles;
+        item.transform.rotation = Quaternion.Euler(rotate);
+        
     }
 
 
