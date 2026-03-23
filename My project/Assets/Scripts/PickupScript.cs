@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PickupScript : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class PickupScript : MonoBehaviour
     Rigidbody rb;
 
     Vector3 objectPos;
+
+    float horizontalInput;
+    float verticalInput;
+
+    Vector3 moveDirection;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,13 +37,18 @@ public class PickupScript : MonoBehaviour
     private void OnMouseDown()
     {
         //pickup
-        if (tempParent != null) 
+        if (tempParent != null)
         {
-            isHolding = true;
-            rb.useGravity = false;
-            rb.detectCollisions = true;
+            distance = Vector3.Distance(this.transform.position, tempParent.transform.position);
+            if (distance <= maxDistance) 
+            { 
+                isHolding = true;
+                rb.useGravity = false;
+                rb.detectCollisions = true;
 
-            this.transform.SetParent(tempParent.transform);
+                this.transform.SetParent(tempParent.transform);
+
+            }
         }
         else
         {
@@ -55,15 +66,27 @@ public class PickupScript : MonoBehaviour
     }
     private void Hold()
     {
+        distance = Vector3.Distance(this.transform.position, tempParent.transform.position);
+
+        if(distance >= maxDistance)
+        {
+            
+            Drop();
+        }
+
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         if (Input.GetMouseButton(1))
         {
-            //throw
+            rb.AddForce(tempParent.transform.forward*throwForce);
+            Drop();
         }
     }
     private void Drop()
     {
+      
+        
+
         if (isHolding)
         {
             isHolding = false;
