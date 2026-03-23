@@ -18,7 +18,7 @@ public class Portal : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         GameObject item = collision.gameObject;
-
+        
         item.transform.position = exitPoint.position + exitPoint.forward * offset;
         if (item.GetComponentInParent<Transform>() != null)
         {
@@ -26,7 +26,11 @@ public class Portal : MonoBehaviour
         }
         Vector3 rotate = exitPoint.rotation.eulerAngles + item.transform.rotation.eulerAngles;
         item.transform.rotation = Quaternion.Euler(rotate);
-        
+    }
+    void PortalType()
+    {
+        gameObject.GetComponentInParent<Transform>();
+
     }
 
 
