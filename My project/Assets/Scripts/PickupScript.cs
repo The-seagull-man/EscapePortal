@@ -16,8 +16,7 @@ public class PickupScript : MonoBehaviour
 
     Vector3 objectPos;
 
-    float horizontalInput;
-    float verticalInput;
+    
 
     Vector3 moveDirection;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -57,11 +56,13 @@ public class PickupScript : MonoBehaviour
     }
     private void OnMouseUp()
     {
+        rb.AddForce(tempParent.transform.forward.normalized);
         Drop();
     }
 
     private void OnMouseExit()
     {
+
         Drop();
     }
     private void Hold()
@@ -84,16 +85,17 @@ public class PickupScript : MonoBehaviour
     }
     private void Drop()
     {
-      
         
 
         if (isHolding)
         {
+            
             isHolding = false;
             objectPos = this.transform.position;
             this.transform.position = objectPos;
             this.transform.SetParent(null);
             rb.useGravity = true;
+            
         }
     }
 }
