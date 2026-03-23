@@ -8,7 +8,7 @@ public class PickupScript : MonoBehaviour
     [SerializeField]
     float throwForce = 600f;
     [SerializeField]
-    float maxDistance = 3f;
+    float maxDistance = 5f;
     float distance;
 
     TempParent tempParent;
