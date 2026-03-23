@@ -13,6 +13,7 @@ public class Portal : MonoBehaviour
     private void Start()
     {
         exitPoint = exitPortal.transform;
+        //gameObject.AddComponent(Material);
     }
 
     private void OnCollisionEnter(Collision collision)
