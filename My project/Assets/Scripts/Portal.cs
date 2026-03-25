@@ -6,20 +6,29 @@ public class Portal : MonoBehaviour
     public GameObject exitPortal; // the portal its connected to
     Transform exitPoint;
     public float offset; // the distace away from the portal
-
+    
     // avv maren (Liza 2026)
 
 
     private void Start()
     {
         exitPoint = exitPortal.transform;
-        //gameObject.AddComponent(Material);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         GameObject item = collision.gameObject;
-        
+        if (GetComponentInParent<SizeChangePortals>() != null)
+        {
+            GetComponentInParent<SizeChangePortals>().SizePortal(item, exitPoint, offset);
+        }
+        else
+        {
+            PortalTypeDefult(item, exitPoint, offset);
+        }        
+    }
+    void PortalTypeDefult(GameObject item, Transform exitPoint, float offset)
+    {
         item.transform.position = exitPoint.position + exitPoint.forward * offset;
         if (item.GetComponentInParent<Transform>() != null)
         {
@@ -27,11 +36,6 @@ public class Portal : MonoBehaviour
         }
         Vector3 rotate = exitPoint.rotation.eulerAngles + item.transform.rotation.eulerAngles;
         item.transform.rotation = Quaternion.Euler(rotate);
-    }
-    void PortalType()
-    {
-        gameObject.GetComponentInParent<Transform>();
-
     }
 
 
