@@ -14,14 +14,16 @@ public class MachinePlatform : Machine {
 	void Start() {
 		origin = transform.position;
 		dest = destination.position;
-		Destroy(destination.gameObject);
+		Destroy(destination.gameObject); //We don't need to keep the destination object, now that we have saved the position.
 	}
 
 	// Update is called once per frame
 	void FixedUpdate()
     {
         if (Active) {
+			//If the platform is not paused.
 			if (pauseTime == 0) {
+				//Calculate amount to move per frame.
 				float travelDelta = Time.fixedDeltaTime/travelTime;
 				if (reversing) {
 					travelFactor -= travelDelta;
@@ -40,6 +42,7 @@ public class MachinePlatform : Machine {
 				}
 				transform.position = Vector3.Lerp(origin, dest, travelFactor);
 			} else {
+				//Tick down pause timer.
 				pauseTime -= Time.fixedDeltaTime;
 				if (pauseTime < 0) {
 					pauseTime = 0;

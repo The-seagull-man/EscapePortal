@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Activator : Machine
+public class Activator : Machine
 {
     public Machine machine;
 
