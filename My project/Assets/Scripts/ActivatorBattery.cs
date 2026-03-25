@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class ActivatorBattery : Activator
 {
-	bool activated = false;
-
     void OnCollisionEnter(Collision collision) {
-		if (!activated) {
+		if (!Active) {
+			//If the object that collides is a battery, consume the battery to turn on the machine.
 			if (collision.gameObject.CompareTag("Battery")) {
-				activated = true;
 				Active = true;
 				Destroy(collision.gameObject);
 			}
