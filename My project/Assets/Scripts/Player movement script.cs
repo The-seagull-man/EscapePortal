@@ -1,32 +1,34 @@
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Playermovementscript : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
+    public float acceleration;
 
     public float groundDrag;
+	public float airDrag;
 
-    public float jumpForce;
+	public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
-    public bool readyToJump;
 
     [Header("Keybinds")]
     public KeyCode JumpKey = KeyCode.Space;
 
     [Header("Ground Check")]
-    public float Height;
-    public LayerMask whatIsGround;
-    public bool grounded;
-
+    public float minGroundSine;
 
     float horizontalInput;
     float verticalInput;
+    List<Collider> grounds;
+	bool grounded;
+	bool readyToJump;
 
-    public Transform cameraYtransform;
-    Vector3 moveDirection;
+	public Transform cameraYtransform;
 
     Rigidbody rb;
 
@@ -35,28 +37,22 @@ public class Playermovementscript : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
+        grounds = new List<Collider>();
     }
-    private void Update()
-    {
-        // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, Height * 0.5f + 0.05f, whatIsGround);
 
-        
-       
-        // handle drag
-        
-        if (grounded)
+    private void FixedUpdate() {
+		MyInput();
+
+		// handle drag
+		if (grounded) {
             rb.linearDamping = groundDrag;
-        else
-            rb.linearDamping = 0;
-        
-    }
-    private void FixedUpdate()
-    {
-        MyInput();
-        SpeedControl();
+        } else {
+            rb.linearDamping = airDrag;
+        }
         MovePlayer();
-    }
+		SpeedControl();
+	}
+
     private void MyInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -76,12 +72,12 @@ public class Playermovementscript : MonoBehaviour
     private void MovePlayer()
     {
         //calculate movement direction
-        moveDirection = cameraYtransform.forward * verticalInput + cameraYtransform.right * horizontalInput;
-        if (grounded)
-            rb.AddForce(moveDirection * moveSpeed * 10f, ForceMode.Force);
-
-        else if (!grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+        Vector3 moveDirection = (cameraYtransform.forward * verticalInput + cameraYtransform.right * horizontalInput).normalized;
+        if (grounded) {
+            rb.AddForce(moveDirection * acceleration, ForceMode.Force);
+        } else if (!grounded) {
+            rb.AddForce(moveDirection * acceleration * airMultiplier, ForceMode.Force);
+        }
     }
 
     private void SpeedControl()
@@ -109,4 +105,35 @@ public class Playermovementscript : MonoBehaviour
         readyToJump = true;
     }
 
+	public void OnCollisionStay(Collision collision) {
+        bool isGround = false;
+        ContactPoint[] contacts = new ContactPoint[collision.contactCount];
+        collision.GetContacts(contacts);
+        //Check through each contact point, and verify whether there are any that aren't too steep.
+		foreach (ContactPoint c in contacts) {
+            if (c.normal.y >= minGroundSine) {
+                isGround = true;
+                break;
+            }
+        }
+
+        //Add or remove the collider from the grounds list depending on whether the collision is too steep.
+        if (isGround) {
+            if (!grounds.Contains(collision.collider)) {
+                grounds.Add(collision.collider);
+                grounded = true;
+            }
+        } else {
+            if (grounds.Remove(collision.collider) && grounds.Count == 0) {
+                grounded = false;
+            }
+        }
+	}
+
+	public void OnCollisionExit(Collision collision) {
+        //Remove the exited collider from the ground list, and mark the player ungrounded if it was the only ground.
+		if (grounds.Remove(collision.collider) && grounds.Count == 0) {
+            grounded = false;
+        }
+	}
 }
