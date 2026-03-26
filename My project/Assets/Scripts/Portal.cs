@@ -4,7 +4,7 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     public GameObject exitPortal; // the portal its connected to
-    Transform exitPoint;
+    Transform exitPoint; // exit point for objects
     public float offset; // the distace away from the portal
     
     // avv maren (Liza 2026)
@@ -15,27 +15,27 @@ public class Portal : MonoBehaviour
         exitPoint = exitPortal.transform;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision) 
     {
-        GameObject item = collision.gameObject;
-        if (GetComponentInParent<SizeChangePortals>() != null)
+        GameObject item = collision.gameObject; // object that gets teleported
+        if (GetComponentInParent<SizeChangePortals>() != null) // checks if the portal needs to do something differnt
         {
-            GetComponentInParent<SizeChangePortals>().SizePortal(item, exitPoint, offset);
+            GetComponentInParent<SizeChangePortals>().SizePortal(item, gameObject, exitPoint, offset);
         }
         else
         {
             PortalTypeDefult(item, exitPoint, offset);
-        }        
+        }
     }
-    void PortalTypeDefult(GameObject item, Transform exitPoint, float offset)
+    void PortalTypeDefult(GameObject item, Transform exitPoint, float offset) // normal teleport
     {
-        item.transform.position = exitPoint.position + exitPoint.forward * offset;
-        if (item.GetComponentInParent<Transform>() != null)
+        if (item.GetComponentInParent<Transform>() != null) // checks for parent
         {
             item = item.GetComponentInParent<Transform>().gameObject;
         }
+        item.transform.position = exitPoint.position + exitPoint.forward * offset; // change position 
         Vector3 rotate = exitPoint.rotation.eulerAngles + item.transform.rotation.eulerAngles;
-        item.transform.rotation = Quaternion.Euler(rotate);
+        item.transform.rotation = Quaternion.Euler(rotate); // change rotation
     }
 
 
