@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Playermovementscript : MonoBehaviour
@@ -21,11 +22,10 @@ public class Playermovementscript : MonoBehaviour
     public bool grounded;
 
 
-    public Transform orientation;
-
     float horizontalInput;
     float verticalInput;
 
+    public Transform cameraYtransform;
     Vector3 moveDirection;
 
     Rigidbody rb;
@@ -42,9 +42,9 @@ public class Playermovementscript : MonoBehaviour
         grounded = Physics.Raycast(transform.position, Vector3.down, Height * 0.5f + 0.05f, whatIsGround);
 
         
-        MyInput();
-        SpeedControl();
+       
         // handle drag
+        
         if (grounded)
             rb.linearDamping = groundDrag;
         else
@@ -53,6 +53,8 @@ public class Playermovementscript : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        MyInput();
+        SpeedControl();
         MovePlayer();
     }
     private void MyInput()
@@ -74,7 +76,7 @@ public class Playermovementscript : MonoBehaviour
     private void MovePlayer()
     {
         //calculate movement direction
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        moveDirection = cameraYtransform.forward * verticalInput + cameraYtransform.right * horizontalInput;
         if (grounded)
             rb.AddForce(moveDirection * moveSpeed * 10f, ForceMode.Force);
 

@@ -5,10 +5,11 @@ public class cameraMover : MonoBehaviour
     public float sensX;
     public float sensY;
 
-    public Transform orientation;
 
     float xRotation;
     float yRotation;
+
+    public Transform cameraYTrans;
 
     private void Start()
     {
@@ -31,8 +32,10 @@ public class cameraMover : MonoBehaviour
     }
     private void LateUpdate()
     {
-        // rotate cam and orientation
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+        // rotate camera
+        transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+
+        cameraYTrans.localRotation = Quaternion.Euler(0, yRotation, 0);
+
     }
 }
