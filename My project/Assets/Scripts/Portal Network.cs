@@ -17,9 +17,6 @@ public class PortalNetwork : MonoBehaviour
             portals[i] = curent.gameObject.GetComponent<Portal>();
             Transform other = gameObject.GetComponentInChildren<Transform>().GetChild(portalNetwork.childCount - i-1); // - i - 1 is to find the other portal 
             portals[i].exitPortal = other.gameObject;
-        }
-        
+        }        
     }
-
-    
 }

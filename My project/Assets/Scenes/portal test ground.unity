@@ -405,13 +405,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181643945}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.13052616, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: 0, y: 6, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 15, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &494221018
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,6 +843,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245402034}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1425211619 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3600724668860074325, guid: 8746b5479794a3a43a4edd4ac5a3ecfe, type: 3}
+  m_PrefabInstance: {fileID: 4684037122990773609}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1425211620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425211619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7c02b0ad5cac44b84f53ef4a705444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SizeChangePortals
 --- !u!1 &1484564953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,6 +1173,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 32b2e736355063b46a0ea7ea4227d683, type: 2}
+    - target: {fileID: 3413650229256588312, guid: 8746b5479794a3a43a4edd4ac5a3ecfe, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413650229256588312, guid: 8746b5479794a3a43a4edd4ac5a3ecfe, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3600724668860074325, guid: 8746b5479794a3a43a4edd4ac5a3ecfe, type: 3}
       propertyPath: m_Name
       value: Portal Network
@@ -1166,7 +1191,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3413650229256588312, guid: 8746b5479794a3a43a4edd4ac5a3ecfe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1948907829}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3600724668860074325, guid: 8746b5479794a3a43a4edd4ac5a3ecfe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1425211620}
   m_SourcePrefab: {fileID: 100100000, guid: 8746b5479794a3a43a4edd4ac5a3ecfe, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
