@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Playermovementscript : MonoBehaviour
@@ -22,15 +23,23 @@ public class Playermovementscript : MonoBehaviour
     [Header("Ground Check")]
     public float minGroundSine;
 
-    float horizontalInput;
-    float verticalInput;
-    List<Collider> grounds;
-	bool grounded;
-	bool readyToJump;
+    public float maxPickupDistance;
 
 	public Transform cameraYtransform;
+    public Transform cameraTransform;
 
-    Rigidbody rb;
+	float horizontalInput;
+	float verticalInput;
+	List<Collider> grounds;
+	bool grounded;
+	bool readyToJump;
+    bool leftMouseInput;
+
+	Rigidbody rb;
+
+#nullable enable
+    PickupScript? heldObject;
+#nullable disable
 
     private void Start()
     {
@@ -40,7 +49,13 @@ public class Playermovementscript : MonoBehaviour
         grounds = new List<Collider>();
     }
 
-    private void FixedUpdate() {
+	public void Update() {
+		if (Input.GetMouseButtonDown((int) MouseButton.Left)) {
+            leftMouseInput = true;
+		}
+    }
+
+	private void FixedUpdate() {
 		MyInput();
 
 		// handle drag
@@ -51,9 +66,13 @@ public class Playermovementscript : MonoBehaviour
         }
         MovePlayer();
 		SpeedControl();
+
+        if (heldObject != null) {
+            heldObject.transform.position = cameraTransform.position + cameraTransform.forward*heldObject.holdDistance;
+        }
 	}
 
-    private void MyInput()
+	private void MyInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
@@ -67,9 +86,27 @@ public class Playermovementscript : MonoBehaviour
 
             Invoke(nameof(ResetJump),jumpCooldown);
         }
-    }
+        if (leftMouseInput) {
+            leftMouseInput = false;
+            HandlePickup();
+        }
+	}
 
-    private void MovePlayer()
+	public void HandlePickup() {
+		if (heldObject == null) {
+			if (Physics.Raycast(cameraTransform.position, cameraTransform.transform.forward, out RaycastHit hit, maxPickupDistance)) {
+				if (hit.collider.gameObject.TryGetComponent<PickupScript>(out PickupScript pickup)) {
+					heldObject = pickup;
+					pickup.OnPickup();
+				}
+			}
+		} else {
+			heldObject.OnDrop(cameraTransform.transform.forward);
+			heldObject = null;
+		}
+	}
+
+	private void MovePlayer()
     {
         //calculate movement direction
         Vector3 moveDirection = (cameraYtransform.forward * verticalInput + cameraYtransform.right * horizontalInput).normalized;
