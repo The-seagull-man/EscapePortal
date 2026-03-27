@@ -392,8 +392,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d1a84d933d86e4b932e47e2a8488ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupScript
-  throwForce: 600
-  holdDistance: 0
+  throwForce: 6
+  holdDistance: 2.5
 --- !u!1001 &644069843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -564,8 +564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d1a84d933d86e4b932e47e2a8488ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupScript
-  throwForce: 600
-  holdDistance: 0
+  throwForce: 6
+  holdDistance: 2.5
 --- !u!1 &1005355769
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,8 +722,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d1a84d933d86e4b932e47e2a8488ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupScript
-  throwForce: 600
-  holdDistance: 0
+  throwForce: 6
+  holdDistance: 2.5
 --- !u!1 &1156827634
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,7 +863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d1a84d933d86e4b932e47e2a8488ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupScript
-  throwForce: 600
+  throwForce: 80
   holdDistance: 4
 --- !u!65 &1293892616
 BoxCollider:
@@ -1213,8 +1213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d1a84d933d86e4b932e47e2a8488ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupScript
-  throwForce: 600
-  holdDistance: 0
+  throwForce: 6
+  holdDistance: 2.5
 --- !u!54 &1709377937
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1349,8 +1349,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d1a84d933d86e4b932e47e2a8488ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupScript
-  throwForce: 600
-  holdDistance: 0
+  throwForce: 6
+  holdDistance: 2.5
 --- !u!1 &2091999650
 GameObject:
   m_ObjectHideFlags: 0
