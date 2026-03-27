@@ -395,4 +395,6 @@ MonoBehaviour:
   airMultiplier: 0.4
   JumpKey: 32
   minGroundSine: 0.7
+  maxPickupDistance: 5
   cameraYtransform: {fileID: 5878484330241861326}
+  cameraTransform: {fileID: 2335253303789276180}
