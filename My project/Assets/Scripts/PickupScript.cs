@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PickupScript : MonoBehaviour
 {
-    public float throwForce = 5f;
-    public float holdDistance = 4;
+    public float throwForce = 6f;
+    public float holdDistance = 3;
 
     Rigidbody rb;
 
