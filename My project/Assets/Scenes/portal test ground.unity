@@ -271,7 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::cameraMover
   sensX: 400
   sensY: 400
-  orientation: {fileID: 1098744532}
+  cameraYTrans: {fileID: 1514436020}
 --- !u!1 &181643945
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,7 +681,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127f9e0e20fc9ea4cb6ba359e89c527e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::cameraHolder
-  cameraPosition: {fileID: 1514436020}
 --- !u!4 &901902507
 Transform:
   m_ObjectHideFlags: 0
@@ -891,18 +890,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Playermovementscript
   moveSpeed: 7
+  acceleration: 0
   groundDrag: 5
+  airDrag: 0
   jumpForce: 5
   jumpCooldown: 0.25
   airMultiplier: 0.4
-  readyToJump: 0
   JumpKey: 32
-  Height: 2
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 8
-  grounded: 1
-  orientation: {fileID: 1098744532}
+  minGroundSine: 0
+  maxPickupDistance: 0
+  cameraYtransform: {fileID: 0}
+  cameraTransform: {fileID: 0}
 --- !u!54 &1484564955
 Rigidbody:
   m_ObjectHideFlags: 0
