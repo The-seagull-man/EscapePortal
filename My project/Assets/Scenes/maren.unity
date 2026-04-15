@@ -394,6 +394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PickupScript
   throwForce: 6
   holdDistance: 2.5
+  maxDistance: 4.5
 --- !u!1001 &644069843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -566,6 +567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PickupScript
   throwForce: 6
   holdDistance: 2.5
+  maxDistance: 4.5
 --- !u!1 &1005355769
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,6 +726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PickupScript
   throwForce: 6
   holdDistance: 2.5
+  maxDistance: 4.5
 --- !u!1 &1156827634
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,6 +868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PickupScript
   throwForce: 80
   holdDistance: 4
+  maxDistance: 7
 --- !u!65 &1293892616
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1215,6 +1219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PickupScript
   throwForce: 6
   holdDistance: 2.5
+  maxDistance: 6
 --- !u!54 &1709377937
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1351,6 +1356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PickupScript
   throwForce: 6
   holdDistance: 2.5
+  maxDistance: 4.5
 --- !u!1 &2091999650
 GameObject:
   m_ObjectHideFlags: 0
