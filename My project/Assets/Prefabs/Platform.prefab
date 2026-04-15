@@ -128,7 +128,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   destination: {fileID: 7062972466656152102}
   travelTime: 4
-  endpointPause: 0.5
+  endpointPause: 1
+  acceleration: 6
+  friction: 4
+  minTimeLeft: 0.125
 --- !u!1 &8654130673544106542
 GameObject:
   m_ObjectHideFlags: 0

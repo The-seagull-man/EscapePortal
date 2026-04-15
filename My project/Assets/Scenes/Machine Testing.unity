@@ -265,6 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PickupScript
   throwForce: 6
   holdDistance: 3
+  maxDistance: 5
 --- !u!1001 &749192842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -489,7 +490,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8578565563772961349, guid: f3aa9fedc65e9824b86d128de7fc52e4, type: 3}
   m_PrefabInstance: {fileID: 265393360200048573}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 265393360200048574}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b24db41cedd08c44381f194316995b3a, type: 3}
@@ -509,7 +510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4587426868919547217, guid: f3aa9fedc65e9824b86d128de7fc52e4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.126
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 4587426868919547217, guid: f3aa9fedc65e9824b86d128de7fc52e4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -547,11 +548,62 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 8578565563772961349, guid: f3aa9fedc65e9824b86d128de7fc52e4, type: 3}
+      propertyPath: boostTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578565563772961349, guid: f3aa9fedc65e9824b86d128de7fc52e4, type: 3}
+      propertyPath: minTimeStress
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578565563772961349, guid: f3aa9fedc65e9824b86d128de7fc52e4, type: 3}
+      propertyPath: stressSpeedCap
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578565563772961349, guid: f3aa9fedc65e9824b86d128de7fc52e4, type: 3}
+      propertyPath: stressDistanceFalloff
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7270576068621010154, guid: f3aa9fedc65e9824b86d128de7fc52e4, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 265393360200048575}
   m_SourcePrefab: {fileID: 100100000, guid: f3aa9fedc65e9824b86d128de7fc52e4, type: 3}
+--- !u!1 &265393360200048574 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7270576068621010154, guid: f3aa9fedc65e9824b86d128de7fc52e4, type: 3}
+  m_PrefabInstance: {fileID: 265393360200048573}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &265393360200048575
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265393360200048574}
+  serializedVersion: 5
+  m_Mass: 10
+  m_LinearDamping: 1
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1001 &3487185931757548769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -560,6 +612,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1097389162270392835, guid: 59892dfcc2f344d439b6229b94ec360f, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1097389162270392835, guid: 59892dfcc2f344d439b6229b94ec360f, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5703458306105365604, guid: 59892dfcc2f344d439b6229b94ec360f, type: 3}
       propertyPath: m_Name
       value: Battery
@@ -620,6 +680,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3992018325415666325, guid: 39da48ade761c80459f1b7e2e147d130, type: 3}
+      propertyPath: size
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 3992018325415666325, guid: 39da48ade761c80459f1b7e2e147d130, type: 3}
       propertyPath: machine
       value: 
