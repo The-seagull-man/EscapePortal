@@ -396,11 +396,11 @@ MonoBehaviour:
   JumpKey: 32
   minGroundSine: 0.7
   maxPickupDistance: 5
-  pickupDirectSpeed: 30
+  pickupDirectSpeed: 50
   pickupCircularSpeed: 25
   pickupOutSpeed: 40
   pickupCircularMotionDelay: 4
-  pickupFriction: 12
+  pickupFriction: 13
   cameraYtransform: {fileID: 5878484330241861326}
   cameraTransform: {fileID: 2335253303789276180}
   youwintext: {fileID: 0}

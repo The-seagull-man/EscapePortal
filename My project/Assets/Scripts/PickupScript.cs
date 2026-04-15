@@ -4,8 +4,9 @@ public class PickupScript : MonoBehaviour
 {
     public float throwForce = 6f;
     public float holdDistance = 3;
+	public float maxDistance = 5;
 
-    Rigidbody rb;
+	Rigidbody rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

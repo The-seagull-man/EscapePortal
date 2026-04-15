@@ -92,50 +92,55 @@ public class Playermovementscript : MonoBehaviour
             Vector3 directMotion = heldGoal - heldObject.transform.position;
 
             Vector3 relativeHeld = heldObject.transform.position - cameraTransform.position;
-            Vector3 relativeHeldNormalized = relativeHeld.normalized;
+            float distance = relativeHeld.magnitude;
+            if (distance >= heldObject.maxDistance) {
+                DropHeldObject();
+            } else {
+                Vector3 relativeHeldNormalized = relativeHeld/distance;
 
-            if (directMotion.x != 0 || directMotion.y != 0 || directMotion.z != 0)
-            { //If the picked up object is already at the correct position, don't bother moving it.
-                Vector3 circleMotion;
-                if (heldObjectCircularMotionFrame == 0 && pickupCircularSpeed != 0)
-                {
-                    Vector3 relativeGoal = heldGoal - cameraTransform.position;
-
-                    Vector3 heldXZ = new(relativeHeld.x, 0, relativeHeld.z);
-                    Vector3 heldXZNormalized;
-                    float heldXZMagnitude = heldXZ.magnitude;
-                    if (heldXZMagnitude == 0)
+                if (directMotion.x != 0 || directMotion.y != 0 || directMotion.z != 0)
+                { //If the picked up object is already at the correct position, don't bother moving it.
+                    Vector3 circleMotion;
+                    if (heldObjectCircularMotionFrame == 0 && pickupCircularSpeed != 0)
                     {
-                        heldXZNormalized = new Vector3(relativeGoal.x, 0, relativeGoal.z).normalized;
+                        Vector3 relativeGoal = heldGoal - cameraTransform.position;
+
+                        Vector3 heldXZ = new(relativeHeld.x, 0, relativeHeld.z);
+                        Vector3 heldXZNormalized;
+                        float heldXZMagnitude = heldXZ.magnitude;
+                        if (heldXZMagnitude == 0)
+                        {
+                            heldXZNormalized = new Vector3(relativeGoal.x, 0, relativeGoal.z).normalized;
+                        }
+                        else
+                        {
+                            heldXZNormalized = heldXZ / heldXZMagnitude;
+                        }
+
+                        float XZAngleDelta = Mathf.DeltaAngle(Mathf.Atan2(relativeHeld.z, relativeHeld.x) * Mathf.Rad2Deg, Mathf.Atan2(relativeGoal.z, relativeGoal.x) * Mathf.Rad2Deg);
+
+                        Vector3 XZMotion = 2 * Mathf.PI * XZAngleDelta / 360f *
+                                new Vector3(-relativeHeld.z, 0, relativeHeld.x);
+                        Vector3 YMotion = (Mathf.Asin(relativeHeldNormalized.y) - Mathf.Asin(relativeGoal.normalized.y)) *
+                                new Vector3(heldXZNormalized.x * relativeHeld.y, -heldXZMagnitude, heldXZNormalized.z * relativeHeld.y);
+
+                        //Debug.Log(XZMotion + " " + YMotion);
+                        //Debug.Log(XZAngleDelta + " " + -(Mathf.Asin(relativeHeldNormalized.y) - Mathf.Asin(relativeGoal.normalized.y)));
+
+                        circleMotion = XZMotion + YMotion;
+                        heldObjectLastCircleMotion = circleMotion;
+                    } else {
+                        circleMotion = heldObjectLastCircleMotion;
                     }
-                    else
-                    {
-                        heldXZNormalized = heldXZ / heldXZMagnitude;
-                    }
-
-                    float XZAngleDelta = Mathf.DeltaAngle(Mathf.Atan2(relativeHeld.z, relativeHeld.x) * Mathf.Rad2Deg, Mathf.Atan2(relativeGoal.z, relativeGoal.x) * Mathf.Rad2Deg);
-
-                    Vector3 XZMotion = 2 * Mathf.PI * XZAngleDelta / 360f *
-                            new Vector3(-relativeHeld.z, 0, relativeHeld.x);
-                    Vector3 YMotion = (Mathf.Asin(relativeHeldNormalized.y) - Mathf.Asin(relativeGoal.normalized.y)) *
-                            new Vector3(heldXZNormalized.x * relativeHeld.y, -heldXZMagnitude, heldXZNormalized.z * relativeHeld.y);
-
-                    //Debug.Log(XZMotion + " " + YMotion);
-                    //Debug.Log(XZAngleDelta + " " + -(Mathf.Asin(relativeHeldNormalized.y) - Mathf.Asin(relativeGoal.normalized.y)));
-
-                    circleMotion = XZMotion + YMotion;
-                    heldObjectLastCircleMotion = circleMotion;
-                } else {
-                    circleMotion = heldObjectLastCircleMotion;
+                    Vector3 outMotion = relativeHeldNormalized * (heldObject.holdDistance - distance);
+                    heldObjectRb.AddForce(-heldObjectRb.linearVelocity * pickupFriction, ForceMode.Acceleration);
+                    heldObjectRb.AddForce(pickupDirectSpeed * directMotion + pickupCircularSpeed * circleMotion + pickupOutSpeed * outMotion, ForceMode.Acceleration);
                 }
-                Vector3 outMotion = relativeHeldNormalized * heldObject.holdDistance - relativeHeld;
-                heldObjectRb.AddForce(-heldObjectRb.linearVelocity * pickupFriction, ForceMode.Acceleration);
-                heldObjectRb.AddForce(pickupDirectSpeed * directMotion + pickupCircularSpeed * circleMotion + pickupOutSpeed * outMotion, ForceMode.Acceleration);
-            }
-            heldObjectCircularMotionFrame++;
-            if (heldObjectCircularMotionFrame == pickupCircularMotionDelay)
-            {
-                heldObjectCircularMotionFrame = 0;
+                heldObjectCircularMotionFrame++;
+                if (heldObjectCircularMotionFrame == pickupCircularMotionDelay)
+                {
+                    heldObjectCircularMotionFrame = 0;
+                }
             }
         }
     }
@@ -173,12 +178,17 @@ public class Playermovementscript : MonoBehaviour
 				}
 			}
 		} else {
-			heldObject.OnDrop(cameraTransform.transform.forward);
-			heldObject = null;
-            heldObjectRb = null;
-			heldObjectLastCircleMotion = Vector3.zero;
+            DropHeldObject();
 		}
 	}
+
+    public void DropHeldObject() {
+        heldObject.OnDrop(cameraTransform.transform.forward);
+		heldObject = null;
+		heldObjectRb = null;
+		heldObjectLastCircleMotion = Vector3.zero;
+	}
+
     public void Door()
     {
         if (Physics.Raycast(cameraTransform.position, cameraTransform.transform.forward, out RaycastHit hit, maxPickupDistance)) 
