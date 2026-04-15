@@ -978,8 +978,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1097389162270392835, guid: 59892dfcc2f344d439b6229b94ec360f, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1097389162270392835, guid: 59892dfcc2f344d439b6229b94ec360f, type: 3}
       propertyPath: m_Constraints
-      value: 14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1097389162270392835, guid: 59892dfcc2f344d439b6229b94ec360f, type: 3}
       propertyPath: m_LinearDamping
@@ -1206,12 +1210,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1097389162270392835, guid: 59892dfcc2f344d439b6229b94ec360f, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1097389162270392835, guid: 59892dfcc2f344d439b6229b94ec360f, type: 3}
       propertyPath: m_Constraints
-      value: 14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1097389162270392835, guid: 59892dfcc2f344d439b6229b94ec360f, type: 3}
       propertyPath: m_LinearDamping
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1097389162270392835, guid: 59892dfcc2f344d439b6229b94ec360f, type: 3}
+      propertyPath: m_ImplicitTensor
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5703458306105365604, guid: 59892dfcc2f344d439b6229b94ec360f, type: 3}
       propertyPath: m_Name
