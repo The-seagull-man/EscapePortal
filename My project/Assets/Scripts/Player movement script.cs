@@ -35,6 +35,9 @@ public class Playermovementscript : MonoBehaviour
 	bool readyToJump;
     bool leftMouseInput;
 
+    
+    public GameObject youwintext;
+
 	Rigidbody rb;
 
 #nullable enable
@@ -47,6 +50,7 @@ public class Playermovementscript : MonoBehaviour
         rb.freezeRotation = true;
         readyToJump = true;
         grounds = new List<Collider>();
+        youwintext.SetActive(false);
     }
 
 	public void Update() {
@@ -89,6 +93,7 @@ public class Playermovementscript : MonoBehaviour
         if (leftMouseInput) {
             leftMouseInput = false;
             HandlePickup();
+            Door();
         }
 	}
 
@@ -105,6 +110,17 @@ public class Playermovementscript : MonoBehaviour
 			heldObject = null;
 		}
 	}
+    public void Door()
+    {
+        if (Physics.Raycast(cameraTransform.position, cameraTransform.transform.forward, out RaycastHit hit, maxPickupDistance)) 
+        {
+            if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Door"))
+            {
+                Debug.Log("Win");
+                youwintext.SetActive(true);
+            }
+        }
+    }
 
 	private void MovePlayer()
     {
