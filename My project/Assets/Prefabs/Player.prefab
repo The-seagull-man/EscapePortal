@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 5815000348902993480}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -403,4 +403,6 @@ MonoBehaviour:
   pickupFriction: 13
   cameraYtransform: {fileID: 5878484330241861326}
   cameraTransform: {fileID: 2335253303789276180}
+  holding: {fileID: 0}
+  notHolding: {fileID: 0}
   youwintext: {fileID: 0}
