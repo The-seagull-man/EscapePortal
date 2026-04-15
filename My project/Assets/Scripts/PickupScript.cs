@@ -14,11 +14,13 @@ public class PickupScript : MonoBehaviour
     }
 
     public virtual void OnPickup() {
-        rb.isKinematic = true;
-    }
+        rb.useGravity = false;
+		rb.linearVelocity = Vector3.zero;
+		rb.angularVelocity = Vector3.zero;
+	}
 
     public virtual void OnDrop(Vector3 direction) {
-		rb.isKinematic = false;
+		rb.useGravity = true;
 		rb.linearVelocity = Vector3.zero;
 		rb.angularVelocity = Vector3.zero;
 		rb.AddForce(direction*throwForce, ForceMode.Impulse);
