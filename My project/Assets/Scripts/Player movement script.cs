@@ -28,7 +28,7 @@ public class Playermovementscript : MonoBehaviour
     public float pickupDirectSpeed;
     public float pickupCircularSpeed;
 	public float pickupOutSpeed;
-	//How many frames between moving a picked up object in a circular motion to save on computation. 1 means every frame. Multiplies pickupCircularSpeed to compensate.
+	//How many frames between calculating a picked up objects movement in a circular motion to save on computation. 1 means every frame.
 	public int pickupCircularMotionDelay;
 	public float pickupFriction;
 
@@ -52,6 +52,7 @@ public class Playermovementscript : MonoBehaviour
     PickupScript? heldObject;
 	Rigidbody? heldObjectRb;
 #nullable disable
+    Vector3 heldObjectLastCircleMotion;
 
 	private void Start()
     {
@@ -95,7 +96,7 @@ public class Playermovementscript : MonoBehaviour
 
             if (directMotion.x != 0 || directMotion.y != 0 || directMotion.z != 0)
             { //If the picked up object is already at the correct position, don't bother moving it.
-                Vector3 circleMotion = Vector3.zero;
+                Vector3 circleMotion;
                 if (heldObjectCircularMotionFrame == 0 && pickupCircularSpeed != 0)
                 {
                     Vector3 relativeGoal = heldGoal - cameraTransform.position;
@@ -123,10 +124,13 @@ public class Playermovementscript : MonoBehaviour
                     //Debug.Log(XZAngleDelta + " " + -(Mathf.Asin(relativeHeldNormalized.y) - Mathf.Asin(relativeGoal.normalized.y)));
 
                     circleMotion = XZMotion + YMotion;
+                    heldObjectLastCircleMotion = circleMotion;
+                } else {
+                    circleMotion = heldObjectLastCircleMotion;
                 }
                 Vector3 outMotion = relativeHeldNormalized * heldObject.holdDistance - relativeHeld;
                 heldObjectRb.AddForce(-heldObjectRb.linearVelocity * pickupFriction, ForceMode.Acceleration);
-                heldObjectRb.AddForce(pickupDirectSpeed * directMotion + pickupCircularMotionDelay * pickupCircularSpeed * circleMotion + pickupOutSpeed * outMotion, ForceMode.Acceleration);
+                heldObjectRb.AddForce(pickupDirectSpeed * directMotion + pickupCircularSpeed * circleMotion + pickupOutSpeed * outMotion, ForceMode.Acceleration);
             }
             heldObjectCircularMotionFrame++;
             if (heldObjectCircularMotionFrame == pickupCircularMotionDelay)
@@ -161,6 +165,7 @@ public class Playermovementscript : MonoBehaviour
 		if (heldObject == null) {
 			if (Physics.Raycast(cameraTransform.position, cameraTransform.transform.forward, out RaycastHit hit, maxPickupDistance)) {
 				if (hit.collider.gameObject.TryGetComponent<PickupScript>(out PickupScript pickup)) {
+                    heldObjectLastCircleMotion = Vector3.zero;
 					heldObject = pickup;
                     heldObjectRb = pickup.GetComponent<Rigidbody>();
 					pickup.OnPickup();
@@ -171,6 +176,7 @@ public class Playermovementscript : MonoBehaviour
 			heldObject.OnDrop(cameraTransform.transform.forward);
 			heldObject = null;
             heldObjectRb = null;
+			heldObjectLastCircleMotion = Vector3.zero;
 		}
 	}
     public void Door()
