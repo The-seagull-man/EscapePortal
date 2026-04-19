@@ -9,6 +9,8 @@ public class SizeChangePortals : MonoBehaviour
         {
             item = item.GetComponentInParent<Transform>().gameObject;
         }
+        
+
         if (exitPoint.localScale.x > transform.localScale.x) // checks if the exit portal is lager.
         {
             item.transform.localScale = item.transform.localScale * exitPoint.localScale.x; // makes object big

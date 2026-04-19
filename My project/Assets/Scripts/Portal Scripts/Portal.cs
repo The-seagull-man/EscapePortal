@@ -6,7 +6,8 @@ public class Portal : MonoBehaviour
     public GameObject exitPortal; // the portal its connected to
     Transform exitPoint; // exit point for objects
     public float offset; // the distace away from the portal
-    
+    public int counter_value;
+
     // avv maren (Liza 2026)
 
 
