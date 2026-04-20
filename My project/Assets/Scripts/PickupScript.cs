@@ -20,10 +20,12 @@ public class PickupScript : MonoBehaviour
 		rb.angularVelocity = Vector3.zero;
 	}
 
-    public virtual void OnDrop(Vector3 direction) {
+    public virtual void OnDrop(Vector3 direction, bool thrown = true) {
 		rb.useGravity = true;
 		rb.linearVelocity = Vector3.zero;
 		rb.angularVelocity = Vector3.zero;
-		rb.AddForce(direction*throwForce, ForceMode.Impulse);
+		if (thrown) {
+			rb.AddForce(direction*throwForce, ForceMode.Impulse);
+		}
 	}
 }

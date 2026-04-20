@@ -112,7 +112,7 @@ public class Playermovementscript : MonoBehaviour
                     Vector3 relativeHeld = heldObject.transform.position - cameraTransform.position;
                     float distance = relativeHeld.magnitude;
                     if (distance >= heldObject.maxDistance) {
-                        DropHeldObject();
+                        DropHeldObject(false);
                     } else {
                         Vector3 relativeHeldNormalized = relativeHeld / distance;
 
@@ -200,8 +200,8 @@ public class Playermovementscript : MonoBehaviour
 		}
 	}
 
-    public void DropHeldObject() {
-        heldObject.OnDrop(cameraTransform.transform.forward);
+    public void DropHeldObject(bool thrown = true) {
+        heldObject.OnDrop(cameraTransform.transform.forward, thrown);
 		heldObject = null;
 		heldObjectRb = null;
 		heldObjectLastCircleMotion = Vector3.zero;
