@@ -28,6 +28,7 @@ public class Portal : MonoBehaviour
             PortalTypeDefult(item, exitPoint, offset);
         }
     }
+
     void PortalTypeDefult(GameObject item, Transform exitPoint, float offset) // normal teleport
     {
         if (item.GetComponentInParent<Transform>() != null) // checks for parent

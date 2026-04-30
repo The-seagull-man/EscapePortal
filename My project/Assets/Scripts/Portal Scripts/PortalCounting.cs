@@ -3,6 +3,6 @@ using UnityEngine;
 [System.Serializable]
 public class PortalCounting
 {
-    GameObject GameObject;
+    public GameObject GameObject;
     public int PortalWarpCount;
 }
