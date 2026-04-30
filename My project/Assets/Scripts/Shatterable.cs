@@ -28,4 +28,8 @@ public class Shatterable : MonoBehaviour
         shardInstance.transform.position = transform.position + direction*Random.Range(shardDisplacementMin, shardDisplacementMax);
 		return shardInstance;
 	}
+
+    public Vector3 CalculateReflectVector(Collision collision) {
+		return Vector3.Reflect(collision.relativeVelocity, collision.GetContact(0).normal);
+    }
 }
