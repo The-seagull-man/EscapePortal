@@ -119,6 +119,141 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &59046501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 59046506}
+  - component: {fileID: 59046505}
+  - component: {fileID: 59046504}
+  - component: {fileID: 59046503}
+  - component: {fileID: 59046507}
+  m_Layer: 0
+  m_Name: Glass wall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &59046503
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59046501}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &59046504
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59046501}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 70b01f3b47edee646b033664ad7e6fda, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &59046505
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59046501}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &59046506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59046501}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4, y: 2.5, z: -4}
+  m_LocalScale: {x: 0.1, y: 5, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &59046507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59046501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7a5e73d9911d34c9788c6936a40669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  shard: {fileID: 357368049789154265, guid: 753c6f9fbe7d9b143b6a3e40e69e9428, type: 3}
+  shardCount: 25
+  shardScale: 0.5
+  shardScaleFactorVariance: 0.25
+  shardForceVariationMin: 0.16
+  shardForceVariationMax: 0.32
+  shardDisplacementMin: 0.2
+  shardDisplacementMax: 1
+  shatterForce: 7
+  brickTag: Brick
 --- !u!1 &165750334
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +483,162 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &474061733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 474061739}
+  - component: {fileID: 474061738}
+  - component: {fileID: 474061737}
+  - component: {fileID: 474061736}
+  - component: {fileID: 474061735}
+  - component: {fileID: 474061734}
+  m_Layer: 0
+  m_Name: Brick
+  m_TagString: Brick
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &474061734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474061733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d1a84d933d86e4b932e47e2a8488ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupScript
+  throwForce: 50
+  holdDistance: 3
+  maxDistance: 5
+--- !u!54 &474061735
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474061733}
+  serializedVersion: 5
+  m_Mass: 5
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &474061736
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474061733}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &474061737
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474061733}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &474061738
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474061733}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &474061739
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474061733}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5, y: 0.1, z: -2}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.45}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &518584302 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6003444869343845773, guid: 198df4160bd903a4194aca1382bc7341, type: 3}
@@ -395,7 +686,7 @@ MonoBehaviour:
   throwForce: 6
   holdDistance: 2.5
   maxDistance: 4.5
---- !u!114 &518584313
+--- !u!114 &518584318
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -404,18 +695,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 518584302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35a414c0cd6138d4fbec55e7fca81051, type: 3}
+  m_Script: {fileID: 11500000, guid: 9945472e6782bc8468f81061be19a407, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::ShatterForce
   shard: {fileID: 357368049789154265, guid: 753c6f9fbe7d9b143b6a3e40e69e9428, type: 3}
   shardCount: 4
   shardScale: 0.1
   shardScaleFactorVariance: 0.25
-  shatterForce: 6.2
   shardForceVariationMin: 0.16
   shardForceVariationMax: 0.32
   shardDisplacementMin: 0.02
   shardDisplacementMax: 0.1
+  shatterForce: 6.2
 --- !u!1001 &644069843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -543,7 +834,7 @@ PrefabInstance:
       addedObject: {fileID: 1709377937}
     - targetCorrespondingSourceObject: {fileID: 7016398463166015519, guid: f1caa0570bdfe98478d408b9ef36166b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1709377940}
+      addedObject: {fileID: 1709377943}
   m_SourcePrefab: {fileID: 100100000, guid: f1caa0570bdfe98478d408b9ef36166b, type: 3}
 --- !u!1 &866275089 stripped
 GameObject:
@@ -751,7 +1042,7 @@ MonoBehaviour:
   throwForce: 6
   holdDistance: 2.5
   maxDistance: 4.5
---- !u!114 &1077217010
+--- !u!114 &1077217015
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -760,18 +1051,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1077216999}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35a414c0cd6138d4fbec55e7fca81051, type: 3}
+  m_Script: {fileID: 11500000, guid: 9945472e6782bc8468f81061be19a407, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Shatterable
+  m_EditorClassIdentifier: Assembly-CSharp::ShatterForce
   shard: {fileID: 357368049789154265, guid: 753c6f9fbe7d9b143b6a3e40e69e9428, type: 3}
   shardCount: 5
   shardScale: 0.07
   shardScaleFactorVariance: 0.25
-  shatterForce: 6.2
   shardForceVariationMin: 0.16
   shardForceVariationMax: 0.32
   shardDisplacementMin: 0.02
   shardDisplacementMax: 0.1
+  shatterForce: 6.2
 --- !u!1 &1156827634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,7 +1425,7 @@ PrefabInstance:
       addedObject: {fileID: 1077217004}
     - targetCorrespondingSourceObject: {fileID: 6857737867133598120, guid: a5c0420c596bf034d9825200be1f85c2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1077217010}
+      addedObject: {fileID: 1077217015}
   m_SourcePrefab: {fileID: 100100000, guid: a5c0420c596bf034d9825200be1f85c2, type: 3}
 --- !u!1 &1635003887
 GameObject:
@@ -1295,7 +1586,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1709377940
+--- !u!114 &1709377943
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1304,18 +1595,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1709377933}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35a414c0cd6138d4fbec55e7fca81051, type: 3}
+  m_Script: {fileID: 11500000, guid: 9945472e6782bc8468f81061be19a407, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Shatterable
+  m_EditorClassIdentifier: Assembly-CSharp::ShatterForce
   shard: {fileID: 357368049789154265, guid: 753c6f9fbe7d9b143b6a3e40e69e9428, type: 3}
   shardCount: 8
   shardScale: 0.07
   shardScaleFactorVariance: 0.25
-  shatterForce: 6.2
   shardForceVariationMin: 0.16
   shardForceVariationMax: 0.32
   shardDisplacementMin: 0.02
   shardDisplacementMax: 0.1
+  shatterForce: 6.2
 --- !u!1001 &1794020967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1380,7 +1671,7 @@ PrefabInstance:
       addedObject: {fileID: 518584307}
     - targetCorrespondingSourceObject: {fileID: 6003444869343845773, guid: 198df4160bd903a4194aca1382bc7341, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 518584313}
+      addedObject: {fileID: 518584318}
   m_SourcePrefab: {fileID: 100100000, guid: 198df4160bd903a4194aca1382bc7341, type: 3}
 --- !u!1 &2002673388 stripped
 GameObject:
@@ -1577,3 +1868,5 @@ SceneRoots:
   - {fileID: 1156827637}
   - {fileID: 1005355773}
   - {fileID: 1293892619}
+  - {fileID: 59046506}
+  - {fileID: 474061739}
