@@ -410,7 +410,7 @@ MonoBehaviour:
   shard: {fileID: 357368049789154265, guid: 753c6f9fbe7d9b143b6a3e40e69e9428, type: 3}
   shardCount: 4
   shardScale: 0.1
-  shatterForce: 6
+  shatterForce: 6.2
   shardForceVariationMin: 0.16
   shardForceVariationMax: 0.32
   shardDisplacementMin: 0.02
@@ -765,7 +765,7 @@ MonoBehaviour:
   shard: {fileID: 357368049789154265, guid: 753c6f9fbe7d9b143b6a3e40e69e9428, type: 3}
   shardCount: 5
   shardScale: 0.07
-  shatterForce: 6
+  shatterForce: 6.2
   shardForceVariationMin: 0.16
   shardForceVariationMax: 0.32
   shardDisplacementMin: 0.02
@@ -1308,7 +1308,7 @@ MonoBehaviour:
   shard: {fileID: 357368049789154265, guid: 753c6f9fbe7d9b143b6a3e40e69e9428, type: 3}
   shardCount: 8
   shardScale: 0.07
-  shatterForce: 6
+  shatterForce: 6.2
   shardForceVariationMin: 0.16
   shardForceVariationMax: 0.32
   shardDisplacementMin: 0.02

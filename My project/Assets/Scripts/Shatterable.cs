@@ -5,7 +5,7 @@ public class Shatterable : MonoBehaviour
     public GameObject shard;
     public int shardCount = 4;
     public float shardScale = .1f;
-    public float shatterForce = 6;
+    public float shatterForce = 6.2f;
     public float shardForceVariationMin = .16f;
 	public float shardForceVariationMax = .32f;
     public float shardDisplacementMin = .02f;
