@@ -5,6 +5,7 @@ public class Shatterable : MonoBehaviour
     public GameObject shard;
     public int shardCount = 4;
     public float shardScale = .1f;
+    public float shardScaleFactorVariance = .25f;
     public float shatterForce = 6.2f;
     public float shardForceVariationMin = .16f;
 	public float shardForceVariationMax = .32f;
@@ -27,7 +28,7 @@ public class Shatterable : MonoBehaviour
 
     public GameObject GenerateShard(Vector3 reflect) {
         GameObject shardInstance = Instantiate(shard);
-        shardInstance.transform.localScale = Vector3.one*shardScale;
+        shardInstance.transform.localScale = Vector3.one*shardScale*(1 + Random.Range(-shardScaleFactorVariance, shardScaleFactorVariance));
         shardInstance.transform.localRotation = Random.rotation;
         Vector3 direction = Random.onUnitSphere;
 		shardInstance.GetComponent<Rigidbody>().linearVelocity =
