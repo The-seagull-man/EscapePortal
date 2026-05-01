@@ -712,7 +712,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed924114fdfcc840af6e44edec17165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPortalWarpCount
-  warpLimt: 2
+  warpLimt: 1
+  portalWarps: []
 --- !u!1 &1812058537 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6495542758467850319, guid: d38e051e7116c5f4e8009d51f2305b1b, type: 3}

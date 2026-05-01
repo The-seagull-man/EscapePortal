@@ -5,4 +5,5 @@ public class PortalCounting
 {
     public GameObject GameObject;
     public int PortalWarpCount;
+    public bool CanWarp;
 }

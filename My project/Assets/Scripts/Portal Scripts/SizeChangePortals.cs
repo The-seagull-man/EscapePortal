@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class SizeChangePortals : MonoBehaviour
 {
@@ -9,7 +10,23 @@ public class SizeChangePortals : MonoBehaviour
         {
             item = item.GetComponentInParent<Transform>().gameObject;
         }
-        
+        if (item.GetComponent<ObjectPortalWarpCount>() != null)
+        {
+            List<PortalCounting> list = new List<PortalCounting>();
+            list = item.GetComponent<ObjectPortalWarpCount>().portalWarps;
+
+            foreach (PortalCounting portalCounting in list)
+            {
+                if (portalCounting.GameObject == gameObject)
+                {
+                    if(portalCounting.CanWarp == false)
+                    {
+                        return;
+                    }
+
+                }
+            }
+        }
 
         if (exitPoint.localScale.x > transform.localScale.x) // checks if the exit portal is lager.
         {
