@@ -3,7 +3,18 @@ using System.Collections.Generic;
 
 public class SizeChangePortals : MonoBehaviour
 {
-    
+    List<PortalCounting> portalWarps;
+    PortalCounting bootless = new PortalCounting();
+
+
+    private void Start()
+    {
+        portalWarps = new List<PortalCounting>();
+        bootless.GameObject = gameObject;
+        bootless.PortalWarpCount = 22; // this doesnt do anything 
+        portalWarps.Add(bootless); // nor this. all it does is make the list not empty, witch we need.
+    }
+
     public void SizePortal(GameObject item,GameObject entrypoint, Transform exitPoint, float offset)
     {
         if (item.GetComponentInParent<Transform>() != null) // checks for parent
@@ -12,18 +23,16 @@ public class SizeChangePortals : MonoBehaviour
         }
         if (item.GetComponent<ObjectPortalWarpCount>() != null)
         {
-            List<PortalCounting> list = new List<PortalCounting>();
-            list = item.GetComponent<ObjectPortalWarpCount>().portalWarps;
-
-            foreach (PortalCounting portalCounting in list)
+            foreach (PortalCounting portal in portalWarps)
             {
-                if (portalCounting.GameObject == gameObject)
+                if (item == portal.GameObject)
                 {
-                    if(portalCounting.CanWarp == false)
+                    if (portal.PortalWarpCount + entrypoint.GetComponent<Portal>().counter_value > item.GetComponent<ObjectPortalWarpCount>().warpLimt || portal.PortalWarpCount + entrypoint.GetComponent<Portal>().counter_value < -item.GetComponent<ObjectPortalWarpCount>().warpLimt)
                     {
+                        
                         return;
                     }
-
+                    portal.PortalWarpCount += item.GetComponent<Portal>().counter_value;                    
                 }
             }
         }

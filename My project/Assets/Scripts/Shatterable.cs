@@ -10,15 +10,24 @@ public class Shatterable : MonoBehaviour
 	public float shardForceVariationMax = .32f;
     public float shardDisplacementMin = .02f;
 	public float shardDisplacementMax = .1f;
+    public bool obeyShardLimit = true;
+
+	public static int globalShardLimit = 120;
+	public static int globalShardCount;
 
     public virtual void Shatter(Vector3 reflect) {
         for (int i = 0; i < shardCount; i++) {
-            GenerateShard(reflect);
+            if (!obeyShardLimit || globalShardCount < globalShardLimit) {
+				GenerateShard(reflect);
+			} else {
+                break;
+            }
         }
         Destroy(gameObject);
     }
 
     public virtual GameObject GenerateShard(Vector3 reflect) {
+        globalShardCount++;
         GameObject shardInstance = Instantiate(shard);
         shardInstance.transform.localScale = Vector3.one*shardScale*(1 + Random.Range(-shardScaleFactorVariance, shardScaleFactorVariance));
         shardInstance.transform.localRotation = Random.rotation;

@@ -5,9 +5,11 @@ public class ObjectRespawner : MonoBehaviour
 {
     public GameObject template;
     public GameObject respawnPosition;
+    public int delay;
 
 	Vector3 respawnPos;
     GameObject obj;
+    int delayCounter;
 
 	void Start()
     {
@@ -17,8 +19,19 @@ public class ObjectRespawner : MonoBehaviour
     }
 
 	private void FixedUpdate() {
-		if (obj.IsDestroyed()) {
-            obj = Instantiate(template);
-        }
+        if (delayCounter > 0) {
+            if (delayCounter == delay) {
+				delayCounter = 0;
+				obj = Instantiate(template);
+            } else {
+                delayCounter++;
+            }
+        } else if (obj.IsDestroyed()) {
+            if (delay == 0) {
+				obj = Instantiate(template);
+			} else {
+                delayCounter++;
+            }
+		}
 	}
 }

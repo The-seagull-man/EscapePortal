@@ -252,6 +252,7 @@ MonoBehaviour:
   shardForceVariationMax: 0.32
   shardDisplacementMin: 0.2
   shardDisplacementMax: 1
+  obeyShardLimit: 1
   shatterForce: 7
   brickTag: Brick
 --- !u!1 &165750334
@@ -706,6 +707,7 @@ MonoBehaviour:
   shardForceVariationMax: 0.32
   shardDisplacementMin: 0.02
   shardDisplacementMax: 0.1
+  obeyShardLimit: 1
   shatterForce: 6.2
 --- !u!1001 &644069843
 PrefabInstance:
@@ -770,6 +772,24 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2002673391}
   m_SourcePrefab: {fileID: 100100000, guid: 1994acd30bb9f5b4998ce4d4ef6b174a, type: 3}
+--- !u!1 &657574295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5762079633207978026, guid: a45554c7f61076b4596f1e7ab12abad3, type: 3}
+  m_PrefabInstance: {fileID: 8191532351428595066}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &657574302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657574295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed2f4753aeb27954e8ac2857ee9240b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RespawnFailsafe
+  lowestY: -20
 --- !u!1 &819731975
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,6 +1113,7 @@ MonoBehaviour:
   shardForceVariationMax: 0.32
   shardDisplacementMin: 0.02
   shardDisplacementMax: 0.1
+  obeyShardLimit: 1
   shatterForce: 6.2
 --- !u!1 &1156827634
 GameObject:
@@ -1492,6 +1513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   template: {fileID: 2031215224948014121, guid: b11c4236705c98441834fdff171984af, type: 3}
   respawnPosition: {fileID: 819731975}
+  delay: 12
 --- !u!65 &1589220604
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1765,6 +1787,7 @@ MonoBehaviour:
   shardForceVariationMax: 0.32
   shardDisplacementMin: 0.02
   shardDisplacementMax: 0.1
+  obeyShardLimit: 1
   shatterForce: 6.2
 --- !u!1001 &1794020967
 PrefabInstance:
@@ -2009,7 +2032,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5762079633207978026, guid: a45554c7f61076b4596f1e7ab12abad3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 657574302}
   m_SourcePrefab: {fileID: 100100000, guid: a45554c7f61076b4596f1e7ab12abad3, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
