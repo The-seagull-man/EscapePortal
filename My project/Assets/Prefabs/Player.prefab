@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 1838215037300328628}
   - component: {fileID: 5487694537583993171}
   - component: {fileID: 5815000348902993480}
+  - component: {fileID: 2300365525850347485}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -406,3 +407,16 @@ MonoBehaviour:
   holding: {fileID: 0}
   notHolding: {fileID: 0}
   youwintext: {fileID: 0}
+--- !u!114 &2300365525850347485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5762079633207978026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed2f4753aeb27954e8ac2857ee9240b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RespawnFailsafe
+  lowestY: -20
