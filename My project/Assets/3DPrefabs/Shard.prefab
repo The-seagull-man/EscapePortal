@@ -154,3 +154,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   shrinkStartTime: 7
   disappearTime: 12
+  isShard: 1
