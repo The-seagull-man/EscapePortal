@@ -73,6 +73,16 @@ public class Playermovementscript : MonoBehaviour
     }
 
 	private void FixedUpdate() {
+        for (int i = 0; i < grounds.Count; i++) {
+			if (grounds[i].IsDestroyed()) {
+				grounds.Remove(grounds[i]);
+                if (grounds.Count == 0) {
+                    grounded = false;
+                }
+                i--;
+			}
+        }
+
 		MyInput();
 
 		// handle drag
