@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 2075545273497415683}
   - component: {fileID: 5842328317361491108}
   - component: {fileID: 7187007514211850461}
-  - component: {fileID: 808915106192202095}
   m_Layer: 0
   m_Name: Explosive
   m_TagString: Untagged
@@ -179,17 +178,3 @@ MonoBehaviour:
   maxDistance: 5
   machine: {fileID: 5842328317361491108}
   activateOnPickup: 0
---- !u!114 &808915106192202095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3231490222130098714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6592f602f9760e4aa71af314745bba4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ObjectRespawner
-  template: {fileID: 0}
-  delay: 30

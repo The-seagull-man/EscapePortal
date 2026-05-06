@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 59046505}
   - component: {fileID: 59046504}
   - component: {fileID: 59046503}
+  - component: {fileID: 59046508}
   - component: {fileID: 59046507}
   m_Layer: 0
   m_Name: Glass wall
@@ -244,6 +245,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7a5e73d9911d34c9788c6936a40669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  shatter: {fileID: 59046508}
+  shatterForce: 7
+  brickTag: Brick
+--- !u!114 &59046508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59046501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a414c0cd6138d4fbec55e7fca81051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shatterable
   shard: {fileID: 357368049789154265, guid: 753c6f9fbe7d9b143b6a3e40e69e9428, type: 3}
   shardCount: 25
   shardScale: 0.5
@@ -253,8 +269,6 @@ MonoBehaviour:
   shardDisplacementMin: 0.2
   shardDisplacementMax: 1
   obeyShardLimit: 1
-  shatterForce: 7
-  brickTag: Brick
 --- !u!1 &165750334
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,6 +557,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9945472e6782bc8468f81061be19a407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShatterForce
+  shatter: {fileID: 518584319}
+  shatterForce: 6.2
+--- !u!114 &518584319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518584302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a414c0cd6138d4fbec55e7fca81051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shatterable
   shard: {fileID: 357368049789154265, guid: 753c6f9fbe7d9b143b6a3e40e69e9428, type: 3}
   shardCount: 4
   shardScale: 0.1
@@ -552,7 +580,6 @@ MonoBehaviour:
   shardDisplacementMin: 0.02
   shardDisplacementMax: 0.1
   obeyShardLimit: 1
-  shatterForce: 6.2
 --- !u!1001 &644069843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -678,6 +705,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7016398463166015519, guid: f1caa0570bdfe98478d408b9ef36166b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1709377937}
+    - targetCorrespondingSourceObject: {fileID: 7016398463166015519, guid: f1caa0570bdfe98478d408b9ef36166b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1709377944}
     - targetCorrespondingSourceObject: {fileID: 7016398463166015519, guid: f1caa0570bdfe98478d408b9ef36166b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1709377943}
@@ -900,6 +930,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9945472e6782bc8468f81061be19a407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShatterForce
+  shatter: {fileID: 1077217016}
+  shatterForce: 6.2
+--- !u!114 &1077217016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077216999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a414c0cd6138d4fbec55e7fca81051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shatterable
   shard: {fileID: 357368049789154265, guid: 753c6f9fbe7d9b143b6a3e40e69e9428, type: 3}
   shardCount: 5
   shardScale: 0.07
@@ -909,7 +953,6 @@ MonoBehaviour:
   shardDisplacementMin: 0.02
   shardDisplacementMax: 0.1
   obeyShardLimit: 1
-  shatterForce: 6.2
 --- !u!1 &1156827634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,6 +1361,9 @@ PrefabInstance:
       addedObject: {fileID: 1077217004}
     - targetCorrespondingSourceObject: {fileID: 6857737867133598120, guid: a5c0420c596bf034d9825200be1f85c2, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1077217016}
+    - targetCorrespondingSourceObject: {fileID: 6857737867133598120, guid: a5c0420c596bf034d9825200be1f85c2, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1077217015}
   m_SourcePrefab: {fileID: 100100000, guid: a5c0420c596bf034d9825200be1f85c2, type: 3}
 --- !u!1 &1589220602
@@ -1603,6 +1649,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9945472e6782bc8468f81061be19a407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShatterForce
+  shatter: {fileID: 1709377944}
+  shatterForce: 6.2
+--- !u!114 &1709377944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709377933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a414c0cd6138d4fbec55e7fca81051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shatterable
   shard: {fileID: 357368049789154265, guid: 753c6f9fbe7d9b143b6a3e40e69e9428, type: 3}
   shardCount: 8
   shardScale: 0.07
@@ -1612,7 +1672,6 @@ MonoBehaviour:
   shardDisplacementMin: 0.02
   shardDisplacementMax: 0.1
   obeyShardLimit: 1
-  shatterForce: 6.2
 --- !u!1001 &1794020967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1675,6 +1734,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6003444869343845773, guid: 198df4160bd903a4194aca1382bc7341, type: 3}
       insertIndex: -1
       addedObject: {fileID: 518584307}
+    - targetCorrespondingSourceObject: {fileID: 6003444869343845773, guid: 198df4160bd903a4194aca1382bc7341, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 518584319}
     - targetCorrespondingSourceObject: {fileID: 6003444869343845773, guid: 198df4160bd903a4194aca1382bc7341, type: 3}
       insertIndex: -1
       addedObject: {fileID: 518584318}

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7376518980155997436}
   - component: {fileID: 7430403497422288847}
   - component: {fileID: 8801770679435444328}
+  - component: {fileID: 5454855130584568103}
   - component: {fileID: 108069668868287909}
   - component: {fileID: 4958551007939389100}
-  - component: {fileID: 4244263706767944678}
   m_Layer: 0
   m_Name: Glass Cube
   m_TagString: Untagged
@@ -143,6 +143,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5454855130584568103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6089561244727268016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a414c0cd6138d4fbec55e7fca81051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shatterable
+  shard: {fileID: 357368049789154265, guid: 753c6f9fbe7d9b143b6a3e40e69e9428, type: 3}
+  shardCount: 5
+  shardScale: 0.2
+  shardScaleFactorVariance: 0.25
+  shardForceVariationMin: 0.16
+  shardForceVariationMax: 0.32
+  shardDisplacementMin: 0.02
+  shardDisplacementMax: 0.1
+  obeyShardLimit: 1
 --- !u!114 &108069668868287909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,15 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9945472e6782bc8468f81061be19a407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShatterForce
-  shard: {fileID: 357368049789154265, guid: 753c6f9fbe7d9b143b6a3e40e69e9428, type: 3}
-  shardCount: 5
-  shardScale: 0.2
-  shardScaleFactorVariance: 0.25
-  shardForceVariationMin: 0.16
-  shardForceVariationMax: 0.32
-  shardDisplacementMin: 0.02
-  shardDisplacementMax: 0.1
-  obeyShardLimit: 1
+  shatter: {fileID: 5454855130584568103}
   shatterForce: 6.2
 --- !u!114 &4958551007939389100
 MonoBehaviour:
@@ -180,17 +193,3 @@ MonoBehaviour:
   throwForce: 6
   holdDistance: 3
   maxDistance: 5
---- !u!114 &4244263706767944678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6089561244727268016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6592f602f9760e4aa71af314745bba4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ObjectRespawner
-  template: {fileID: 0}
-  delay: 0
