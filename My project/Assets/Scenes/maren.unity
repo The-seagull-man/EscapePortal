@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 59046505}
   - component: {fileID: 59046504}
   - component: {fileID: 59046503}
+  - component: {fileID: 59046508}
   - component: {fileID: 59046507}
   m_Layer: 0
   m_Name: Glass wall
@@ -244,6 +245,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7a5e73d9911d34c9788c6936a40669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  shatter: {fileID: 59046508}
+  shatterForce: 7
+  brickTag: Brick
+--- !u!114 &59046508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59046501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a414c0cd6138d4fbec55e7fca81051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shatterable
   shard: {fileID: 357368049789154265, guid: 753c6f9fbe7d9b143b6a3e40e69e9428, type: 3}
   shardCount: 25
   shardScale: 0.5
@@ -253,8 +269,6 @@ MonoBehaviour:
   shardDisplacementMin: 0.2
   shardDisplacementMax: 1
   obeyShardLimit: 1
-  shatterForce: 7
-  brickTag: Brick
 --- !u!1 &165750334
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,6 +557,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9945472e6782bc8468f81061be19a407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShatterForce
+  shatter: {fileID: 518584319}
+  shatterForce: 6.2
+--- !u!114 &518584319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518584302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a414c0cd6138d4fbec55e7fca81051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shatterable
   shard: {fileID: 357368049789154265, guid: 753c6f9fbe7d9b143b6a3e40e69e9428, type: 3}
   shardCount: 4
   shardScale: 0.1
@@ -552,7 +580,6 @@ MonoBehaviour:
   shardDisplacementMin: 0.02
   shardDisplacementMax: 0.1
   obeyShardLimit: 1
-  shatterForce: 6.2
 --- !u!1001 &644069843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -616,37 +643,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2002673391}
   m_SourcePrefab: {fileID: 100100000, guid: 1994acd30bb9f5b4998ce4d4ef6b174a, type: 3}
---- !u!1 &819731975
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 819731976}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &819731976
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819731975}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1999999, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1589220607}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &862587114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -709,6 +705,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7016398463166015519, guid: f1caa0570bdfe98478d408b9ef36166b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1709377937}
+    - targetCorrespondingSourceObject: {fileID: 7016398463166015519, guid: f1caa0570bdfe98478d408b9ef36166b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1709377944}
     - targetCorrespondingSourceObject: {fileID: 7016398463166015519, guid: f1caa0570bdfe98478d408b9ef36166b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1709377943}
@@ -931,6 +930,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9945472e6782bc8468f81061be19a407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShatterForce
+  shatter: {fileID: 1077217016}
+  shatterForce: 6.2
+--- !u!114 &1077217016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077216999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a414c0cd6138d4fbec55e7fca81051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shatterable
   shard: {fileID: 357368049789154265, guid: 753c6f9fbe7d9b143b6a3e40e69e9428, type: 3}
   shardCount: 5
   shardScale: 0.07
@@ -940,7 +953,6 @@ MonoBehaviour:
   shardDisplacementMin: 0.02
   shardDisplacementMax: 0.1
   obeyShardLimit: 1
-  shatterForce: 6.2
 --- !u!1 &1156827634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,6 +1027,52 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1270344948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1270344950}
+  - component: {fileID: 1270344949}
+  m_Layer: 0
+  m_Name: Glass Cube Respawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1270344949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270344948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6592f602f9760e4aa71af314745bba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectRespawner
+  template: {fileID: 6089561244727268016, guid: b11c4236705c98441834fdff171984af, type: 3}
+  delay: 12
+--- !u!4 &1270344950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270344948}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6, y: 0.5, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1303,6 +1361,9 @@ PrefabInstance:
       addedObject: {fileID: 1077217004}
     - targetCorrespondingSourceObject: {fileID: 6857737867133598120, guid: a5c0420c596bf034d9825200be1f85c2, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1077217016}
+    - targetCorrespondingSourceObject: {fileID: 6857737867133598120, guid: a5c0420c596bf034d9825200be1f85c2, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1077217015}
   m_SourcePrefab: {fileID: 100100000, guid: a5c0420c596bf034d9825200be1f85c2, type: 3}
 --- !u!1 &1589220602
@@ -1317,7 +1378,6 @@ GameObject:
   - component: {fileID: 1589220606}
   - component: {fileID: 1589220605}
   - component: {fileID: 1589220604}
-  - component: {fileID: 1589220603}
   m_Layer: 0
   m_Name: Respawn Platform
   m_TagString: Untagged
@@ -1325,21 +1385,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1589220603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589220602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91164af1f31d83c4db02ccf5706d735c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  template: {fileID: 2031215224948014121, guid: b11c4236705c98441834fdff171984af, type: 3}
-  respawnPosition: {fileID: 819731975}
-  delay: 12
 --- !u!65 &1589220604
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1430,8 +1475,7 @@ Transform:
   m_LocalPosition: {x: 6, y: 0.14, z: 2}
   m_LocalScale: {x: 1, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 819731976}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1635003887
@@ -1605,6 +1649,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9945472e6782bc8468f81061be19a407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShatterForce
+  shatter: {fileID: 1709377944}
+  shatterForce: 6.2
+--- !u!114 &1709377944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709377933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a414c0cd6138d4fbec55e7fca81051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shatterable
   shard: {fileID: 357368049789154265, guid: 753c6f9fbe7d9b143b6a3e40e69e9428, type: 3}
   shardCount: 8
   shardScale: 0.07
@@ -1614,7 +1672,6 @@ MonoBehaviour:
   shardDisplacementMin: 0.02
   shardDisplacementMax: 0.1
   obeyShardLimit: 1
-  shatterForce: 6.2
 --- !u!1001 &1794020967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1679,8 +1736,57 @@ PrefabInstance:
       addedObject: {fileID: 518584307}
     - targetCorrespondingSourceObject: {fileID: 6003444869343845773, guid: 198df4160bd903a4194aca1382bc7341, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 518584319}
+    - targetCorrespondingSourceObject: {fileID: 6003444869343845773, guid: 198df4160bd903a4194aca1382bc7341, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 518584318}
   m_SourcePrefab: {fileID: 100100000, guid: 198df4160bd903a4194aca1382bc7341, type: 3}
+--- !u!1 &1950922845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1950922847}
+  - component: {fileID: 1950922846}
+  m_Layer: 0
+  m_Name: Explosive Respawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1950922846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950922845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6592f602f9760e4aa71af314745bba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectRespawner
+  template: {fileID: 3231490222130098714, guid: 661a1f17d3975e34aa58222ed91c85f6, type: 3}
+  delay: 30
+--- !u!4 &1950922847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950922845}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5, y: 0.2, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2002673388 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4609804898609163907, guid: 1994acd30bb9f5b4998ce4d4ef6b174a, type: 3}
@@ -1936,3 +2042,5 @@ SceneRoots:
   - {fileID: 59046506}
   - {fileID: 1589220607}
   - {fileID: 1092099368162390756}
+  - {fileID: 1270344950}
+  - {fileID: 1950922847}
