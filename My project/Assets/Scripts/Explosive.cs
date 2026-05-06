@@ -1,13 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Explosive : Machine
 {
-    public int timer;
-    public float flashRateStart;
-	public float flashRateEnd;
+    public int timer = 450;
+    public float flashRateStart = .25f;
+	public float flashRateEnd = 5;
 	public float radius;
 	public float powerMax;
 	public float powerMin;
+	public float upwardBoost;
 
 	Material mat;
 	int countdown;
@@ -33,6 +35,32 @@ public class Explosive : Machine
     }
 
     public void Explode() {
+		List<GameObject> hits = new();
+		foreach (Collider c in Physics.OverlapSphere(transform.position, radius)) {
+			GameObject hit = c.gameObject;
+			if (hit == gameObject || hits.Contains(hit)) {
+				continue;
+			}
+			hits.Add(hit);
+			if (hit.TryGetComponent(out Rigidbody rb)) {
+				Vector3 direction = hit.transform.position - transform.position;
+				float distance = direction.magnitude;
+				if (distance == 0) {
+					direction = Vector3.up;
+				} else {
+					direction /= distance;
+				}
+				distance /= radius;
+				float power = Mathf.LerpUnclamped(powerMax, powerMin, distance*distance);
+				if (power > 0) {
+					Vector3 force = (direction + Vector3.up*upwardBoost)*power;
+					rb.AddForce(force, ForceMode.Impulse);
+					if (hit.TryGetComponent(out ExplosionReceiver receiver)) {
+						receiver.ReceiveExplosion(transform.position, force, power);
+					}
+				}
+			}
+		}
 		Destroy(gameObject);
     }
 

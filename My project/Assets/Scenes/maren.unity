@@ -1072,11 +1072,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   timer: 450
-  flashRateStart: 0.3
-  flashRateEnd: 6
-  radius: 0
-  powerMax: 0
-  powerMin: 0
+  flashRateStart: 0.25
+  flashRateEnd: 5
+  radius: 5
+  powerMax: 10
+  powerMin: 2
+  upwardBoost: 0.2
 --- !u!54 &1217911856
 Rigidbody:
   m_ObjectHideFlags: 0
