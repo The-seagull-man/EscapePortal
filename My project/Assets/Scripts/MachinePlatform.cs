@@ -28,10 +28,10 @@ public class MachinePlatform : Machine {
 			Vector3 direction = (reversing ? origin : dest) - transform.position;
 			float distance = direction.magnitude;
 			if (distance != 0) {
-				direction = direction/distance;
+				direction /= distance;
 				float speed = rb.linearVelocity.magnitude;
 				if (speed != 0) {
-					speed = speed*Mathf.Max(Vector3.Dot(rb.linearVelocity/speed, direction), 0);
+					speed = Mathf.Max(Vector3.Dot(rb.linearVelocity, direction), 0);
 				}
 				float timeLeft = travelTime - currentTravelTime;
 				rb.AddForce(direction*(distance/Mathf.Max(timeLeft, minTimeLeft) - speed)*acceleration - rb.linearVelocity*friction, ForceMode.Acceleration);
@@ -51,5 +51,7 @@ public class MachinePlatform : Machine {
 		rb.isKinematic = false;
 	}
 
-	public override void OnDeactivate() {}
+	public override void OnDeactivate() {
+		rb.isKinematic = true;
+	}
 }
