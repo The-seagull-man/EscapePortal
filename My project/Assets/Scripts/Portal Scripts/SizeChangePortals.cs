@@ -3,9 +3,11 @@ using System.Collections.Generic;
 
 public class SizeChangePortals : MonoBehaviour
 {
+    [SerializeField]
     List<PortalCounting> portalWarps;
-    PortalCounting bootless = new PortalCounting();
 
+    PortalCounting bootless = new PortalCounting();
+    
 
     private void Start()
     {
@@ -21,22 +23,30 @@ public class SizeChangePortals : MonoBehaviour
         {
             item = item.GetComponentInParent<Transform>().gameObject;
         }
-        if (item.GetComponent<ObjectPortalWarpCount>() != null)
+        if (item.GetComponent<ObjectPortalWarpCount>() != null)  
         {
-            foreach (PortalCounting portal in portalWarps)
+            bool isFound = false;
+            foreach (PortalCounting portalItemWarps in portalWarps)
             {
-                if (item == portal.GameObject)
+                if (item == portalItemWarps.GameObject)
                 {
-                    if (portal.PortalWarpCount + entrypoint.GetComponent<Portal>().counter_value > item.GetComponent<ObjectPortalWarpCount>().warpLimt || portal.PortalWarpCount + entrypoint.GetComponent<Portal>().counter_value < -item.GetComponent<ObjectPortalWarpCount>().warpLimt)
+                    isFound = true;
+                    if (portalItemWarps.PortalWarpCount + entrypoint.GetComponent<Portal>().counter_value > item.GetComponent<ObjectPortalWarpCount>().warpLimt || portalItemWarps.PortalWarpCount + entrypoint.GetComponent<Portal>().counter_value < -item.GetComponent<ObjectPortalWarpCount>().warpLimt)
                     {
-                        
                         return;
-                    }
-                    portal.PortalWarpCount += item.GetComponent<Portal>().counter_value;                    
+                    } 
+                    portalItemWarps.PortalWarpCount += item.GetComponent<Portal>().counter_value;                    
                 }
             }
+            if (!isFound)
+            {
+                PortalCounting newPortal = new PortalCounting();
+                newPortal.GameObject = item;
+                newPortal.PortalWarpCount = entrypoint.gameObject.GetComponent<Portal>().counter_value;
+                newPortal.CanWarp = true;
+                portalWarps.Add(newPortal);
+            }
         }
-
         if (exitPoint.localScale.x > transform.localScale.x) // checks if the exit portal is lager.
         {
             item.transform.localScale = item.transform.localScale * exitPoint.localScale.x; // makes object big

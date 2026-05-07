@@ -9951,7 +9951,7 @@ GameObject:
   - component: {fileID: 602275755900637029}
   - component: {fileID: 5049265091295870133}
   m_Layer: 0
-  m_Name: Portal Network
+  m_Name: Portal Network Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
