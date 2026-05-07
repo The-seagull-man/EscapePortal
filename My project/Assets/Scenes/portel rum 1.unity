@@ -1931,13 +1931,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 34736516027881385, guid: 74d348d39b4fc7149aefa30f48777800, type: 3}
+      propertyPath: portalIsActivated
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 197833306262132848, guid: 74d348d39b4fc7149aefa30f48777800, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 602275755900637029, guid: 74d348d39b4fc7149aefa30f48777800, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.39587
+      value: 2.46
       objectReference: {fileID: 0}
     - target: {fileID: 602275755900637029, guid: 74d348d39b4fc7149aefa30f48777800, type: 3}
       propertyPath: m_LocalPosition.y

@@ -9803,6 +9803,7 @@ MonoBehaviour:
   exitPortal: {fileID: 0}
   offset: 1.5
   counter_value: 0
+  portalIsActivated: 1
 --- !u!1 &6152077866592815429
 GameObject:
   m_ObjectHideFlags: 0
@@ -10117,6 +10118,7 @@ MonoBehaviour:
   exitPortal: {fileID: 0}
   offset: 1.5
   counter_value: 0
+  portalIsActivated: 1
 --- !u!1 &9195146886313087935
 GameObject:
   m_ObjectHideFlags: 0
