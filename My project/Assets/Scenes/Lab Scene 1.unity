@@ -706,15 +706,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5454855130584568103, guid: b11c4236705c98441834fdff171984af, type: 3}
       propertyPath: shardCount
-      value: 61
+      value: 744
       objectReference: {fileID: 0}
     - target: {fileID: 5454855130584568103, guid: b11c4236705c98441834fdff171984af, type: 3}
       propertyPath: shardScale
       value: 0.47
       objectReference: {fileID: 0}
     - target: {fileID: 5454855130584568103, guid: b11c4236705c98441834fdff171984af, type: 3}
+      propertyPath: obeyShardLimit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5454855130584568103, guid: b11c4236705c98441834fdff171984af, type: 3}
       propertyPath: shardDisplacementMax
-      value: 0.87
+      value: 5.46
       objectReference: {fileID: 0}
     - target: {fileID: 5454855130584568103, guid: b11c4236705c98441834fdff171984af, type: 3}
       propertyPath: shardDisplacementMin
@@ -738,7 +742,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7793256456732656821, guid: b11c4236705c98441834fdff171984af, type: 3}
       propertyPath: m_LocalScale.x
-      value: -0.5
+      value: -0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7793256456732656821, guid: b11c4236705c98441834fdff171984af, type: 3}
       propertyPath: m_LocalScale.y
@@ -1588,8 +1592,8 @@ Transform:
   m_GameObject: {fileID: 545406107}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.2736, y: 3, z: 3.7}
-  m_LocalScale: {x: 19.118626, y: 0.1, z: 5.0515003}
+  m_LocalPosition: {x: 19, y: 3, z: 3.7}
+  m_LocalScale: {x: 8.6, y: 0.1, z: 5.0515003}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 836299778}
