@@ -27,14 +27,17 @@ public class MachinePlatform : Machine {
         if (Active) {
 			Vector3 direction = (reversing ? origin : dest) - transform.position;
 			float distance = direction.magnitude;
-			direction = direction.normalized;
-
-			float speed = rb.linearVelocity.magnitude;
-			if (speed != 0) {
-				speed = speed*Mathf.Max(Vector3.Dot(rb.linearVelocity/speed, direction), 0);
+			if (distance != 0) {
+				direction = direction/distance;
+				float speed = rb.linearVelocity.magnitude;
+				if (speed != 0) {
+					speed = speed*Mathf.Max(Vector3.Dot(rb.linearVelocity/speed, direction), 0);
+				}
+				float timeLeft = travelTime - currentTravelTime;
+				rb.AddForce(direction*(distance/Mathf.Max(timeLeft, minTimeLeft) - speed)*acceleration - rb.linearVelocity*friction, ForceMode.Acceleration);
+			} else {
+				rb.AddForce(-rb.linearVelocity*friction, ForceMode.Acceleration);
 			}
-			float timeLeft = travelTime - currentTravelTime;
-			rb.AddForce(direction*(distance/Mathf.Max(timeLeft, minTimeLeft) - speed)*acceleration - rb.linearVelocity*friction, ForceMode.Acceleration);
 
 			currentTravelTime += Time.fixedDeltaTime;
 			if (currentTravelTime >= travelTime + endpointPause) {
