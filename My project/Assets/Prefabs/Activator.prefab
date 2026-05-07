@@ -126,3 +126,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   machine: {fileID: 0}
+  size: 1

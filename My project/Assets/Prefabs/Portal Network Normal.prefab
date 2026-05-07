@@ -9951,7 +9951,7 @@ GameObject:
   - component: {fileID: 602275755900637029}
   - component: {fileID: 5049265091295870133}
   m_Layer: 0
-  m_Name: Portal Network
+  m_Name: Portal Network Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10309,8 +10309,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3730662689750563943, guid: 23fb0264897b5194b9d08aa8da6fad7b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8855484030593784192}
   m_SourcePrefab: {fileID: 100100000, guid: 23fb0264897b5194b9d08aa8da6fad7b, type: 3}
+--- !u!1 &3544603989625174621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3730662689750563943, guid: 23fb0264897b5194b9d08aa8da6fad7b, type: 3}
+  m_PrefabInstance: {fileID: 213093596183184954}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8855484030593784192
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3544603989625174621}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.127023, y: 0.20069122, z: 1}
+  m_Center: {x: 0.00076508505, y: -0.01705432, z: -8.208471e-10}
 --- !u!4 &4214003799472873703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4075240204402878173, guid: 23fb0264897b5194b9d08aa8da6fad7b, type: 3}
@@ -10396,7 +10425,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

@@ -7,6 +7,7 @@ public class Portal : MonoBehaviour
     Transform exitPoint; // exit point for objects
     public float offset; // the distace away from the portal
     public int counter_value;
+    public bool portalIsActivated = true;
 
     // avv maren (Liza 2026)
 
@@ -21,11 +22,18 @@ public class Portal : MonoBehaviour
         GameObject item = collision.gameObject; // object that gets teleported
         if (GetComponentInParent<SizeChangePortals>() != null) // checks if the portal needs to do something differnt
         {
-            GetComponentInParent<SizeChangePortals>().SizePortal(item, gameObject, exitPoint, offset);
+            if (portalIsActivated && exitPortal.GetComponent<Portal>().portalIsActivated)
+            {
+                GetComponentInParent<SizeChangePortals>().SizePortal(item, gameObject, exitPoint, offset);
+            }
         }
         else
         {
-            PortalTypeDefult(item, exitPoint, offset);
+            if (portalIsActivated && exitPortal.GetComponent<Portal>().portalIsActivated)
+            {
+                PortalTypeDefult(item, exitPoint, offset);
+
+            }
         }
     }
 
