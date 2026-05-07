@@ -10,7 +10,6 @@ public class ActivatorBattery : Activator
 				if (collision.gameObject.transform.localScale.x == size)
 				{
 					Active = true;
-					Debug.Log("active");
 					Destroy(collision.gameObject);
 
 				}
