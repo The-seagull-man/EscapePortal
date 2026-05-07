@@ -78,6 +78,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1ae28693f07328a4b938b6669e63656f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3593499016584671069}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1ae28693f07328a4b938b6669e63656f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4835745629189216880}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1ae28693f07328a4b938b6669e63656f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8297763090589335649}
   m_SourcePrefab: {fileID: 100100000, guid: 1ae28693f07328a4b938b6669e63656f, type: 3}
 --- !u!1 &5240481059031599802 stripped
 GameObject:
@@ -118,3 +124,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   lowestY: -20
+--- !u!114 &4835745629189216880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5240481059031599802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d1a84d933d86e4b932e47e2a8488ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupScript
+  throwForce: 6
+  holdDistance: 2.5
+  maxDistance: 4.5
+--- !u!54 &8297763090589335649
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5240481059031599802}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

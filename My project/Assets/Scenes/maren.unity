@@ -712,53 +712,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1709377943}
   m_SourcePrefab: {fileID: 100100000, guid: f1caa0570bdfe98478d408b9ef36166b, type: 3}
---- !u!1 &866275089 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5240481059031599802, guid: ab0d290d1687d1b498b461a678b016f8, type: 3}
-  m_PrefabInstance: {fileID: 1326729096}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &866275094
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 866275089}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &866275095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 866275089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71d1a84d933d86e4b932e47e2a8488ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PickupScript
-  throwForce: 6
-  holdDistance: 2.5
-  maxDistance: 4.5
 --- !u!1 &1005355769
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,13 +1242,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5240481059031599802, guid: ab0d290d1687d1b498b461a678b016f8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 866275095}
-    - targetCorrespondingSourceObject: {fileID: 5240481059031599802, guid: ab0d290d1687d1b498b461a678b016f8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 866275094}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab0d290d1687d1b498b461a678b016f8, type: 3}
 --- !u!1001 &1537537236
 PrefabInstance:
