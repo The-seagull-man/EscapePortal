@@ -49,6 +49,7 @@ public class SizeChangePortals : MonoBehaviour
         }
         if (exitPoint.localScale.x > transform.localScale.x) // checks if the exit portal is lager.
         {
+            float scaleX = Mathf.Clamp(item.transform.localScale.x * exitPoint.localScale.x, item.GetComponent<ObjectPortalWarpCount>().MinSize, item.GetComponent<ObjectPortalWarpCount>().MaxSize);
             item.transform.localScale = item.transform.localScale * exitPoint.localScale.x; // makes object big
             item.GetComponent<Rigidbody>().mass *= exitPoint.localScale.x; // makes mass of object heavy
         }
