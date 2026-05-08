@@ -12,7 +12,7 @@ public class ShatterForce : MonoBehaviour, ExplosionReceiver {
 
 	public void ReceiveExplosion(Vector3 position, Vector3 force, float power) {
 		if (power > shatterForce) {
-			shatter.Shatter(force.normalized);
+			shatter.Shatter(force);
 		}
 	}
 }

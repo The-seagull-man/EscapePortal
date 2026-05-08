@@ -958,8 +958,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shatterable
   shard: {fileID: 5991495296631365487, guid: 90ba13d53a947e049895b8721050a7fa, type: 3}
-  shardCount: 12
-  shardScale: 0.33333334
+  shardCount: 16
+  shardScale: 0.5
   shardScaleFactorVariance: 0.25
   shardForceVariationMin: 0.16
   shardForceVariationMax: 0.32
