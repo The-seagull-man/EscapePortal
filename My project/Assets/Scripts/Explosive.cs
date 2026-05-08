@@ -42,7 +42,11 @@ public class Explosive : Machine
 				continue;
 			}
 			hits.Add(hit);
-			if (hit.TryGetComponent(out Rigidbody rb)) {
+			Rigidbody rb = null;
+			ExplosionReceiver receiver = null;
+			hit.TryGetComponent(out rb);
+			hit.TryGetComponent(out receiver);
+			if (rb != null || receiver != null) {
 				Vector3 direction = hit.transform.position - transform.position;
 				float distance = direction.magnitude;
 				if (distance == 0) {
@@ -54,8 +58,10 @@ public class Explosive : Machine
 				float power = Mathf.LerpUnclamped(powerMax, powerMin, distance*distance);
 				if (power > 0) {
 					Vector3 force = (direction + Vector3.up*upwardBoost)*power;
-					rb.AddForce(force, ForceMode.Impulse);
-					if (hit.TryGetComponent(out ExplosionReceiver receiver)) {
+					if (rb != null) {
+						rb.AddForce(force, ForceMode.Impulse);
+					}
+					if (receiver != null) {
 						receiver.ReceiveExplosion(transform.position, force, power);
 					}
 				}
