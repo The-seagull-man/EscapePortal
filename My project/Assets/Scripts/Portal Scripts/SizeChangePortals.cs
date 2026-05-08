@@ -23,41 +23,28 @@ public class SizeChangePortals : MonoBehaviour
         {
             item = item.GetComponentInParent<Transform>().gameObject;
         }
-        if (item.GetComponent<ObjectPortalWarpCount>() != null)  
+        if (item.TryGetComponent(out ObjectPortalWarpCount warpCount))  
         {
-            bool isFound = false;
-            foreach (PortalCounting portalItemWarps in portalWarps)
+            if (exitPoint.localScale.x > transform.localScale.x) // checks if the exit portal is lager.
             {
-                if (item == portalItemWarps.GameObject)
-                {
-                    isFound = true;
-                    if (portalItemWarps.PortalWarpCount + entrypoint.GetComponent<Portal>().counter_value > item.GetComponent<ObjectPortalWarpCount>().warpLimt || portalItemWarps.PortalWarpCount + entrypoint.GetComponent<Portal>().counter_value < -item.GetComponent<ObjectPortalWarpCount>().warpLimt)
-                    {
-                        return;
-                    } 
-                    portalItemWarps.PortalWarpCount += item.GetComponent<Portal>().counter_value;                    
-                }
+                float scaleX = Mathf.Clamp(item.transform.localScale.x * exitPoint.localScale.x, warpCount.MinSizeX, warpCount.MaxSizeX);
+                float scaleY = Mathf.Clamp(item.transform.localScale.y * exitPoint.localScale.y, warpCount.MinSizeY, warpCount.MaxSizeY);
+                float scaleZ = Mathf.Clamp(item.transform.localScale.z * exitPoint.localScale.z, warpCount.MinSizeZ, warpCount.MaxSizeZ);
+
+                item.transform.localScale = new Vector3(scaleX, scaleY, scaleZ); // makes object big
+                item.GetComponent<Rigidbody>().mass *= entrypoint.transform.localScale.x; // makes mass of object heavy
             }
-            if (!isFound)
+            else
             {
-                PortalCounting newPortal = new PortalCounting();
-                newPortal.GameObject = item;
-                newPortal.PortalWarpCount = entrypoint.gameObject.GetComponent<Portal>().counter_value;
-                newPortal.CanWarp = true;
-                portalWarps.Add(newPortal);
+                float scaleX = Mathf.Clamp(item.transform.localScale.x / exitPoint.localScale.x, warpCount.MinSizeX, warpCount.MaxSizeX);
+                float scaleY = Mathf.Clamp(item.transform.localScale.y / exitPoint.localScale.y, warpCount.MinSizeY, warpCount.MaxSizeY);
+                float scaleZ = Mathf.Clamp(item.transform.localScale.z / exitPoint.localScale.z, warpCount.MinSizeZ, warpCount.MaxSizeZ);
+
+                item.transform.localScale = new Vector3(scaleX, scaleY, scaleZ); // makes object small
+                item.GetComponent<Rigidbody>().mass /= entrypoint.transform.localScale.x; //makes mass of object lit
             }
         }
-        if (exitPoint.localScale.x > transform.localScale.x) // checks if the exit portal is lager.
-        {
-            float scaleX = Mathf.Clamp(item.transform.localScale.x * exitPoint.localScale.x, item.GetComponent<ObjectPortalWarpCount>().MinSize, item.GetComponent<ObjectPortalWarpCount>().MaxSize);
-            item.transform.localScale = item.transform.localScale * exitPoint.localScale.x; // makes object big
-            item.GetComponent<Rigidbody>().mass *= exitPoint.localScale.x; // makes mass of object heavy
-        }
-        else
-        {
-            item.transform.localScale = item.transform.localScale / entrypoint.transform.localScale.x; // makes object small
-            item.GetComponent<Rigidbody>().mass /= entrypoint.transform.localScale.x; //makes mass of object lit
-        }
+        
         float size = item.transform.localScale.x;
         item.transform.position = exitPoint.position + exitPoint.forward * (offset + size); // change position
         Vector3 rotate = exitPoint.localRotation.eulerAngles - this.transform.localRotation.eulerAngles + item.transform.rotation.eulerAngles + new Vector3(0, 180, 0);
