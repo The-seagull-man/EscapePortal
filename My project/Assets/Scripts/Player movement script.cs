@@ -26,8 +26,11 @@ public class Playermovementscript : MonoBehaviour
     public float maxPickupDistance;
 
     public float pickupDirectSpeed;
-    public float pickupCircularSpeed;
+	public float pickupDirectFalloff;
+	public float pickupCircularSpeed;
+	public float pickupCircularFalloff;
 	public float pickupOutSpeed;
+	public float pickupOutFalloff;
 	//How many frames between calculating a picked up objects movement in a circular motion to save on computation. 1 means every frame.
 	public int pickupCircularMotionDelay;
 	public float pickupFriction;
@@ -43,8 +46,9 @@ public class Playermovementscript : MonoBehaviour
 	bool grounded;
 	bool readyToJump;
     bool leftMouseInput;
+	bool rightMouseInput;
 
-    public GameObject holding;
+	public GameObject holding;
     public GameObject notHolding;
 
     public GameObject youwintext;
@@ -70,7 +74,10 @@ public class Playermovementscript : MonoBehaviour
 		if (Input.GetMouseButtonDown((int) MouseButton.Left)) {
             leftMouseInput = true;
 		}
-    }
+		if (Input.GetMouseButtonDown((int) MouseButton.Right)) {
+			rightMouseInput = true;
+		}
+	}
 
 	private void FixedUpdate() {
         for (int i = 0; i < grounds.Count; i++) {
@@ -155,13 +162,17 @@ public class Playermovementscript : MonoBehaviour
                         //Debug.Log(XZAngleDelta + " " + -(Mathf.Asin(relativeHeldNormalized.y) - Mathf.Asin(relativeGoal.normalized.y)));
 
                         circleMotion = XZMotion + YMotion;
-                        heldObjectLastCircleMotion = circleMotion;
+                        circleMotion = ModifyPickupVectorLength(circleMotion, pickupCircularSpeed, pickupCircularFalloff);
+						heldObjectLastCircleMotion = circleMotion;
                     } else {
                         circleMotion = heldObjectLastCircleMotion;
                     }
                     Vector3 outMotion = relativeHeldNormalized * (heldObject.holdDistance - distance);
-                    heldObjectRb.AddForce(-heldObjectRb.linearVelocity * pickupFriction, ForceMode.Acceleration);
-                    heldObjectRb.AddForce(pickupDirectSpeed * directMotion + pickupCircularSpeed * circleMotion + pickupOutSpeed * outMotion, ForceMode.Acceleration);
+                    heldObjectRb.AddForce(
+                        ModifyPickupVectorLength(directMotion, pickupDirectSpeed, pickupDirectFalloff) +
+						circleMotion +
+						ModifyPickupVectorLength(outMotion, pickupOutSpeed, pickupOutFalloff) +
+						-heldObjectRb.linearVelocity * pickupFriction, ForceMode.Acceleration);
                 }
                 heldObjectCircularMotionFrame++;
                 if (heldObjectCircularMotionFrame == pickupCircularMotionDelay)
@@ -171,6 +182,17 @@ public class Playermovementscript : MonoBehaviour
             }
         }
     }
+
+    public static Vector3 ModifyPickupVectorLength(Vector3 vector, float speed, float falloff) {
+        float magnitude = vector.magnitude;
+        if (magnitude == 0) {
+            return vector;
+        }
+        if (falloff != 0) {
+            speed = Mathf.Lerp(0, speed, magnitude/falloff);
+		}
+		return speed/magnitude*vector;
+	}
 
 	private void MyInput()
     {
@@ -190,6 +212,12 @@ public class Playermovementscript : MonoBehaviour
             leftMouseInput = false;
             HandlePickup();
             Door();
+        }
+        if (rightMouseInput) {
+            rightMouseInput = false;
+            if (heldObject != null) {
+                DropHeldObject(false);
+            }
         }
 	}
 
