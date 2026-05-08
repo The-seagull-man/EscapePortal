@@ -66,11 +66,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687747226741084238, guid: 74d348d39b4fc7149aefa30f48777800, type: 3}
       propertyPath: m_Name
-      value: Portal Network 1 Variant
+      value: Portal Network Size change
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 602275755900637029, guid: 74d348d39b4fc7149aefa30f48777800, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7676205732253918297}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6687747226741084238, guid: 74d348d39b4fc7149aefa30f48777800, type: 3}
       insertIndex: -1
@@ -94,3 +97,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SizeChangePortals
   portalWarps: []
+--- !u!4 &6558285390423335415 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 602275755900637029, guid: 74d348d39b4fc7149aefa30f48777800, type: 3}
+  m_PrefabInstance: {fileID: 6005553725108170386}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7858188764725806002
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6558285390423335415}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.22
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.19
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.7140665
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
+      propertyPath: m_Name
+      value: portel new 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
+--- !u!4 &7676205732253918297 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
+  m_PrefabInstance: {fileID: 7858188764725806002}
+  m_PrefabAsset: {fileID: 0}

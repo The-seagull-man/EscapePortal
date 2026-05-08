@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using UnityEngine.Animations;
 using UnityEditor.Experimental;
 using Unity.VisualScripting;
+using System;
 
 public class ObjectPortalWarpCount : MonoBehaviour
 {
-    public int warpLimt;
     [SerializeField]
     private int max = 5;
-    public float startSize;
-    public float MaxSize { get { return startSize * max; } }
-    public float MinSize { get { return startSize / max; } }
+    public Vector3 startSize;
+    public float MaxSizeX { get { return startSize.x * max; } }
+    public float MinSizeX { get { return startSize.x / max; } }
+    public float MaxSizeY { get { return startSize.y * max; } }
+    public float MinSizeY { get { return startSize.y / max; } }
+    public float MaxSizeZ { get { return startSize.z * max; } }
+    public float MinSizeZ { get { return startSize.z / max; } }
 
     private void Awake()
     {
-        startSize = transform.localScale.x;
+        startSize = transform.localScale;
     }
 
     

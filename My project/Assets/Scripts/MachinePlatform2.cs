@@ -4,10 +4,11 @@ public class MachinePlatform2 : Machine {
 	public Transform destination;
 	public float travelTime;
 	public float endpointPause;
-	public float distanceResist;
-	public float offAxisDistanceResist;
-	public float speedResist;
-	public float offAxisSpeedResist;
+	public float distanceResist = 60;
+	public float offAxisDistanceResist = 120;
+	public float speedResist = 12;
+	public float offAxisSpeedResist = 24;
+	public float maxAccel = 36;
 
 	Vector3 origin;
 	Vector3 dest;
@@ -58,11 +59,17 @@ public class MachinePlatform2 : Machine {
 			float actualSpeed = Vector3.Dot(offAxisSpeed, direction);
 			offAxisSpeed -= direction*actualSpeed;
 
-			rb.AddForce((reversing ? -1 : 1)*accel*direction 
-					-offAxisSpeedResist*offAxisSpeed 
-					-speedResist*(actualSpeed - expectedSpeed)*direction 
-					-offAxisDistanceResist*offAxisDistance 
-					-distanceResist*(actualDistance - expectedDistance)*direction, ForceMode.Acceleration);
+			Vector3 totalAccel = (reversing ? -1 : 1)*accel*direction
+					-offAxisSpeedResist*offAxisSpeed
+					-speedResist*(actualSpeed - expectedSpeed)*direction
+					-offAxisDistanceResist*offAxisDistance
+					-distanceResist*(actualDistance - expectedDistance)*direction;
+			float totalAccelMagnitude = totalAccel.magnitude;
+			if (totalAccelMagnitude > maxAccel) {
+				totalAccel = maxAccel/totalAccelMagnitude*totalAccel;
+			}
+
+			rb.AddForce(totalAccel, ForceMode.Acceleration);
 
 			currentTravelTime += Time.fixedDeltaTime;
 			if (currentTravelTime >= travelTime + endpointPause) {
