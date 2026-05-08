@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: portalstand
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c719530f08983034aa986c9eb2c41c0c, type: 3}
+      propertyPath: m_TagString
+      value: portal
+      objectReference: {fileID: 0}
     - target: {fileID: 4531912228224351498, guid: c719530f08983034aa986c9eb2c41c0c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
