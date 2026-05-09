@@ -20,9 +20,6 @@ public class PortalNetwork : MonoBehaviour
         }
         if (gameObject.GetComponent<SizeChangePortals>() != null) // checks if the portals change size of objects
         {
-            portals[0].counter_value = 1;
-            portals[1].counter_value = -1;
-
         }
     }
 }

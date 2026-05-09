@@ -9883,7 +9883,7 @@ Transform:
   m_GameObject: {fileID: 9195146886313087935}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 8.67289, y: -0.23554993, z: -2.3701563}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 0.10000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10228,7 +10228,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Portal
   exitPortal: {fileID: 0}
   offset: 1.5
-  counter_value: 0
   portalIsActivated: 1
 --- !u!1001 &1589758130871225184
 PrefabInstance:
@@ -10470,5 +10469,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Portal
   exitPortal: {fileID: 0}
   offset: 1.5
-  counter_value: 0
   portalIsActivated: 1

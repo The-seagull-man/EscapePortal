@@ -6,7 +6,7 @@ public class Portal : MonoBehaviour
     public GameObject exitPortal; // the portal its connected to
     Transform exitPoint; // exit point for objects
     public float offset; // the distace away from the portal
-    public int counter_value;
+    
     public bool portalIsActivated = true;
 
     // avv maren (Liza 2026)
@@ -43,8 +43,8 @@ public class Portal : MonoBehaviour
         {
             item = item.GetComponentInParent<Transform>().gameObject;
         }
-        item.transform.position = exitPoint.position + exitPoint.forward * offset; // change position 
-        Vector3 rotate = exitPoint.localRotation.eulerAngles - this.transform.localRotation.eulerAngles + item.transform.rotation.eulerAngles + new Vector3(0,180,0);
+        item.transform.position = exitPoint.position + exitPoint.forward * -1 * offset; // change position 
+        Vector3 rotate = exitPoint.localRotation.eulerAngles - this.transform.localRotation.eulerAngles + item.transform.rotation.eulerAngles + new Vector3(0,90,0);
         item.transform.rotation = Quaternion.Euler(rotate); // change rotation
     }
 
