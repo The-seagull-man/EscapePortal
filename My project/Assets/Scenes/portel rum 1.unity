@@ -964,6 +964,8 @@ MonoBehaviour:
   throwForce: 6
   holdDistance: 3
   maxDistance: 5
+  heldAngularDamping: 0.5
+  heldMass: 0.5
 --- !u!1001 &605510924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1284,6 +1286,8 @@ MonoBehaviour:
   throwForce: 6
   holdDistance: 3
   maxDistance: 5
+  heldAngularDamping: 0.5
+  heldMass: 0.5
 --- !u!1 &899251261 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5314783583382232862, guid: c39e45da7cbcaad4589381e935efd380, type: 3}
