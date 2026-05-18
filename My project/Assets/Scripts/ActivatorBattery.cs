@@ -3,6 +3,8 @@ using UnityEngine;
 public class ActivatorBattery : Activator
 {
 	public float size;
+	[SerializeField]
+	GameObject myBattery;
     void OnCollisionEnter(Collision collision) {
 		if (!Active) {
 			//If the object that collides is a battery, consume the battery to turn on the machine.
@@ -11,7 +13,7 @@ public class ActivatorBattery : Activator
 				{
 					Active = true;
 					Destroy(collision.gameObject);
-
+					myBattery.SetActive(true);
 				}
 			}
 		}
