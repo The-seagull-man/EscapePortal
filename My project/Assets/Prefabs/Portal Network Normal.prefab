@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1168255339418167100}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4863,7 +4863,7 @@ Transform:
   m_GameObject: {fileID: 2150028546243067035}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9700,7 +9700,7 @@ Transform:
   m_GameObject: {fileID: 6152077866592815429}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.14588976, y: -0.29454994, z: 0.027843714}
+  m_LocalPosition: {x: 0.125, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 0.10000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9883,7 +9883,7 @@ Transform:
   m_GameObject: {fileID: 9195146886313087935}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.125, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 0.10000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10084,8 +10084,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.127023, y: 0.20069122, z: 1}
-  m_Center: {x: 0.00076508505, y: -0.01705432, z: -8.208471e-10}
+  m_Size: {x: 1.2, y: 0.20069122, z: 1.2}
+  m_Center: {x: 0, y: -0.01705432, z: 0}
 --- !u!4 &4214003799472873703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4075240204402878173, guid: 23fb0264897b5194b9d08aa8da6fad7b, type: 3}
@@ -10113,15 +10113,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.0061102
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.45955
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.7071564
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10178,7 +10178,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 175623230306256226}
+      addedObject: {fileID: 8661151348522101252}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7188627271122298565}
@@ -10193,8 +10193,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
   m_PrefabInstance: {fileID: 1335349057466950164}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &175623230306256226
-SphereCollider:
+--- !u!136 &8661151348522101252
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10208,12 +10208,14 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.25, z: 0}
 --- !u!114 &7188627271122298565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10226,8 +10228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0856d7fbee458fa4d98ff2b257a32ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Portal
-  exitPortal: {fileID: 0}
+  exitPortal: {fileID: 9082073752273064761}
   offset: 1.5
+  exitOffset: {x: 0, y: 1.25, z: 0}
   portalIsActivated: 1
 --- !u!1001 &1589758130871225184
 PrefabInstance:
@@ -10321,8 +10324,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.127023, y: 0.20069122, z: 1}
-  m_Center: {x: 0.00076508505, y: -0.01705432, z: -8.208471e-10}
+  m_Size: {x: 1.2, y: 0.20069122, z: 1.2}
+  m_Center: {x: 0, y: -0.01705432, z: 0}
 --- !u!4 &3351203444652027325 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4075240204402878173, guid: 23fb0264897b5194b9d08aa8da6fad7b, type: 3}
@@ -10350,15 +10353,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.0061102
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.49
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.7071564
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10419,7 +10422,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 312987844287329659}
+      addedObject: {fileID: 6472405560495032305}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4347108409522598819}
@@ -10434,8 +10437,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f54b8f58f766bf443bc4b1d228ca4c5a, type: 3}
   m_PrefabInstance: {fileID: 8271819646843203176}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &312987844287329659
-SphereCollider:
+--- !u!136 &6472405560495032305
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10449,12 +10452,14 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.25, z: 0}
 --- !u!114 &4347108409522598819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10467,6 +10472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0856d7fbee458fa4d98ff2b257a32ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Portal
-  exitPortal: {fileID: 0}
+  exitPortal: {fileID: 2182404366700732229}
   offset: 1.5
+  exitOffset: {x: 0, y: 1.25, z: 0}
   portalIsActivated: 1
