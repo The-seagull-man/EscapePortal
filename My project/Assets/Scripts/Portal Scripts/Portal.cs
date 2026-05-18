@@ -30,7 +30,7 @@ public class Portal : MonoBehaviour
         {
             if (portalIsActivated && exitPortal.GetComponent<Portal>().portalIsActivated)
             {
-                GetComponentInParent<SizeChangePortals>().SizePortal(item, gameObject, exitPoint, offset);
+                GetComponentInParent<SizeChangePortals>().SizePortal(item, gameObject, exitPoint, exitOffset, offset);
             }
         }
         else

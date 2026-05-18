@@ -6,7 +6,7 @@ public class SizeChangePortals : MonoBehaviour
 
     
 
-    public void SizePortal(GameObject item,GameObject entryPoint, Transform exitPoint, float offset)
+    public void SizePortal(GameObject item,GameObject entryPoint, Transform exitPoint, Vector3 exitOffset, float offset)
     {
         if (item.GetComponentInParent<Transform>() != null) // checks for parent
         {
@@ -35,8 +35,11 @@ public class SizeChangePortals : MonoBehaviour
         }
         
         float size = item.transform.localScale.x;
-        item.transform.position = exitPoint.position + exitPoint.right * -1 * (offset + size); // change position
-        Vector3 rotate = exitPoint.localRotation.eulerAngles - this.transform.localRotation.eulerAngles + item.transform.rotation.eulerAngles + new Vector3(0, 90, 0);
-        item.transform.rotation = Quaternion.Euler(rotate); // change rotation
-    }
+		Quaternion teleRotation = Quaternion.Inverse(transform.rotation)*exitPoint.rotation*Quaternion.Euler(new Vector3(0, 180, 0));
+		item.transform.position = exitPoint.position + exitOffset + offset*exitPoint.right; // change position
+		item.transform.rotation *= teleRotation; // change rotation
+		if (item.TryGetComponent(out Rigidbody rb)) {
+			rb.linearVelocity = teleRotation*rb.linearVelocity; //change velocity
+		}
+	}
 }
