@@ -3,19 +3,8 @@ using System.Collections.Generic;
 
 public class SizeChangePortals : MonoBehaviour
 {
-    [SerializeField]
-    List<PortalCounting> portalWarps;
 
-    PortalCounting bootless = new PortalCounting();
     
-
-    private void Start()
-    {
-        portalWarps = new List<PortalCounting>();
-        bootless.GameObject = gameObject;
-        bootless.PortalWarpCount = 22; // this doesnt do anything 
-        portalWarps.Add(bootless); // nor this. all it does is make the list not empty, witch we need.
-    }
 
     public void SizePortal(GameObject item,GameObject entryPoint, Transform exitPoint, float offset)
     {
