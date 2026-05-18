@@ -43,7 +43,7 @@ public class Portal : MonoBehaviour
         {
             item = item.GetComponentInParent<Transform>().gameObject;
         }
-        item.transform.position = exitPoint.position + exitPoint.forward * -1 * offset; // change position 
+        item.transform.position = exitPoint.position + exitPoint.right * -1 * offset; // change position 
         Vector3 rotate = exitPoint.localRotation.eulerAngles - this.transform.localRotation.eulerAngles + item.transform.rotation.eulerAngles + new Vector3(0,90,0);
         item.transform.rotation = Quaternion.Euler(rotate); // change rotation
     }
